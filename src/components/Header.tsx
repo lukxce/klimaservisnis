@@ -33,7 +33,7 @@ export async function Header() {
       </div>
 
       {/* Mobilni red: burger levo, logo centrirano, CTA desno */}
-      <Container className="relative grid grid-cols-3 items-center py-4 md:hidden">
+      <Container className="relative grid grid-cols-[auto_1fr_auto] items-center gap-2 py-4 md:hidden">
         <div className="flex justify-start">
           <MobileMenu serviceLinks={serviceLinks} navLinks={navLinks} />
         </div>
