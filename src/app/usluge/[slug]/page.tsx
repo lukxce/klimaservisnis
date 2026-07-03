@@ -9,6 +9,7 @@ import { PageHero } from "@/components/PageHero";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { RichText } from "@/components/RichText";
 import { ServiceRow } from "@/components/ServiceRow";
+import { ClosingCta } from "@/components/ClosingCta";
 import { JsonLd } from "@/components/JsonLd";
 import {
   getServicePages,
@@ -257,6 +258,8 @@ export default async function UslugaDetailPage(
           </Container>
         </section>
       )}
+
+      <ClosingCta phone={settings.phone} />
     </>
   );
 }
