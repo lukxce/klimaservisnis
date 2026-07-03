@@ -29,6 +29,13 @@ export const servicePage = defineType({
       rows: 2,
     }),
     defineField({
+      name: 'image',
+      title: 'Slika (opciono)',
+      description: 'Prikazuje se u sekciji "Zašto izabrati naš servis"',
+      type: 'image',
+      options: {hotspot: true},
+    }),
+    defineField({
       name: 'body',
       title: 'Detaljan tekst (dugačak, za SEO)',
       description:

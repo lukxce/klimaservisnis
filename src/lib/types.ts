@@ -60,6 +60,7 @@ export type ServicePage = {
   slug: string;
   title: string;
   heroSubtitle?: string;
+  imageUrl?: string;
   body?: unknown;
   checklist: ChecklistItem[];
   ctaBandTitle?: string;
