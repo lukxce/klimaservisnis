@@ -6,6 +6,7 @@ import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProductCard } from "@/components/ProductCard";
 import { BlogCard } from "@/components/BlogCard";
+import { ClosingCta } from "@/components/ClosingCta";
 import {
   getSiteSettings,
   getFeaturedServices,
@@ -243,6 +244,8 @@ export default async function HomePage() {
           </div>
         </Container>
       </section>
+
+      <ClosingCta phone={settings.phone} />
     </>
   );
 }
