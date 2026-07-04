@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import Image from "next/image";
+
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
+import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { RichText } from "@/components/RichText";
 import { ServiceRow } from "@/components/ServiceRow";
+import { ClosingCta } from "@/components/ClosingCta";
 import { JsonLd } from "@/components/JsonLd";
 import {
   getServicePages,
@@ -172,20 +176,32 @@ export default async function UslugaDetailPage(
 
       {/* Why us */}
       {page.whyUs.length > 0 && (
-        <section className="py-14">
-          <Container>
-            <span className="text-sm font-semibold uppercase tracking-wide text-accent">
-              Zašto mi
-            </span>
-            <h2 className="mt-2 text-3xl font-bold text-navy">Zašto izabrati naš servis?</h2>
-            <div className="mt-8 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
-              {page.whyUs.map((item, i) => (
-                <div key={i}>
-                  <h3 className="font-semibold text-navy">{item.title}</h3>
-                  <p className="mt-1 text-sm text-muted">{item.description}</p>
-                </div>
-              ))}
+        <section className="bg-surface py-14">
+          <Container className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+            <div>
+              <span className="text-sm font-semibold uppercase tracking-wide text-accent">
+                Zašto mi
+              </span>
+              <h2 className="mt-2 text-3xl font-bold text-navy">Zašto izabrati naš servis?</h2>
+              <div className="mt-8 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2">
+                {page.whyUs.map((item, i) => (
+                  <div key={i}>
+                    <h3 className="font-semibold text-navy">{item.title}</h3>
+                    <p className="mt-1 text-sm text-muted">{item.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
+            {page.imageUrl ? (
+              <div className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
+                <Image src={page.imageUrl} alt={page.title} fill className="object-cover" />
+              </div>
+            ) : (
+              <PlaceholderImage
+                label={`Slika: ${page.title.toLowerCase()}`}
+                className="h-72 w-full rounded-3xl sm:h-96"
+              />
+            )}
           </Container>
         </section>
       )}
@@ -242,6 +258,8 @@ export default async function UslugaDetailPage(
           </Container>
         </section>
       )}
+
+      <ClosingCta phone={settings.phone} />
     </>
   );
 }

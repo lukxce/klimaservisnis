@@ -110,6 +110,7 @@ function mapServicePage(raw: any): ServicePage {
     slug: typeof raw.slug === "string" ? raw.slug : raw.slug?.current,
     title: raw.title,
     heroSubtitle: raw.heroSubtitle,
+    imageUrl: imgUrl(raw.image),
     body: raw.body,
     checklist: raw.checklist ?? [],
     ctaBandTitle: raw.ctaBandTitle,

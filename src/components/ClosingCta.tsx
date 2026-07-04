@@ -2,7 +2,7 @@ import { Container } from "@/components/Container";
 
 export function ClosingCta({ phone }: { phone: string }) {
   return (
-    <section className="pb-16">
+    <section className="py-10">
       <Container>
         <div className="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-navy to-navy-light p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
           <div>
