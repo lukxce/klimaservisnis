@@ -17,6 +17,7 @@ export async function Footer() {
 
   return (
     <footer className="mt-10 bg-navy text-white">
+      <div className="h-1 bg-gradient-to-r from-accent via-sky-400 to-accent-dark" />
       <Container className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 md:grid-cols-4">
         <div>
           <h3 className="text-lg font-bold">{settings.title}</h3>
