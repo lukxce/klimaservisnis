@@ -50,6 +50,29 @@ p {
   text-wrap: pretty;
 }
 
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-track {
+  animation: marquee-right 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

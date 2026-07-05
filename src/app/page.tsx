@@ -41,51 +41,51 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy text-white">
+      <section className="relative overflow-hidden bg-gradient-to-b from-surface via-surface to-white">
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.25]"
+          className="pointer-events-none absolute inset-0 opacity-[0.35]"
           style={{
-            backgroundImage: "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-            maskImage: "linear-gradient(to bottom right, black, transparent 65%)",
+            backgroundImage: "radial-gradient(rgba(11,21,38,0.14) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+            maskImage: "linear-gradient(to bottom, black, transparent 70%)",
           }}
         />
-        <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 right-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sky-400/10 blur-3xl" />
         <Container className="relative grid grid-cols-1 items-center gap-12 py-16 md:grid-cols-2 md:py-24">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm font-semibold text-accent backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-white px-3 py-1 text-sm font-semibold text-accent shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               Dostupni danas u {settings.city}u
             </span>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.1] sm:text-6xl">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.1] text-navy sm:text-6xl">
               Servis, montaža i prodaja{" "}
-              <span className="bg-gradient-to-r from-accent to-sky-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent to-sky-500 bg-clip-text text-transparent">
                 klima uređaja
               </span>{" "}
               u {settings.city}u
             </h1>
-            <p className="mt-5 max-w-md text-lg text-white/60">
+            <p className="mt-5 max-w-md text-lg text-muted">
               Brz izlazak na teren, transparentne cene i {settings.foundedYear ? `preko ${new Date().getFullYear() - settings.foundedYear} godina` : "dugogodišnje"} iskustva sa svim vodećim brendovima klima uređaja.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/shop"
-                className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent-dark"
+                className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark"
               >
                 Pogledajte klime
               </Link>
               <a
                 href="#usluge"
-                className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white hover:text-navy"
+                className="rounded-full border border-navy/15 bg-white/70 px-7 py-3.5 text-sm font-semibold text-navy backdrop-blur transition hover:bg-navy hover:text-white"
               >
                 Pogledajte usluge
               </a>
             </div>
-            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
+            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-navy/80">
               <li className="flex items-center gap-2">
                 <span className="text-accent">✓</span> Izlazak na teren isti dan
               </li>
@@ -99,18 +99,17 @@ export default async function HomePage() {
           </div>
           <div className="relative">
             {settings.heroImageUrl ? (
-              <div className="relative h-72 w-full overflow-hidden rounded-3xl ring-1 ring-white/10 sm:h-[26rem]">
+              <div className="relative h-72 w-full overflow-hidden rounded-3xl shadow-xl shadow-navy/10 sm:h-[26rem]">
                 <Image src={settings.heroImageUrl} alt={settings.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
               </div>
             ) : (
               <PlaceholderImage
                 label="Hero slika: instalacija klime u modernom enterijeru"
-                className="h-72 w-full rounded-3xl ring-1 ring-white/10 sm:h-[26rem]"
+                className="h-72 w-full rounded-3xl shadow-xl shadow-navy/10 sm:h-[26rem]"
               />
             )}
             {settings.foundedYear && (
-              <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white p-4 pr-6 text-navy shadow-xl">
+              <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-white p-4 pr-6 text-navy shadow-xl ring-1 ring-black/5">
                 <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-xl">
                   ❄
                 </span>
@@ -123,20 +122,32 @@ export default async function HomePage() {
               </div>
             )}
             {settings.workingHours && (
-              <div className="absolute -top-4 right-5 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/15 backdrop-blur">
+              <div className="absolute -top-4 right-5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-navy shadow-md ring-1 ring-black/5 backdrop-blur">
                 {settings.workingHours}
               </div>
             )}
           </div>
         </Container>
-        <div className="relative border-t border-white/10">
-          <Container className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-5 text-sm font-medium text-white/40">
-            <span className="text-xs font-semibold uppercase tracking-wide text-white/30">
-              Radimo sa brendovima
-            </span>
-            {settings.brands.map((brand) => (
-              <span key={brand} className="transition hover:text-white/70">{brand}</span>
-            ))}
+        <div className="relative border-t border-black/5 bg-white/60 backdrop-blur">
+          <Container className="py-4">
+            <div
+              className="relative overflow-hidden"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+              }}
+            >
+              <div className="marquee-track flex w-max items-center gap-12">
+                {[...settings.brands, ...settings.brands].map((brand, i) => (
+                  <span
+                    key={`${brand}-${i}`}
+                    className="whitespace-nowrap text-sm font-semibold uppercase tracking-widest text-navy/40"
+                  >
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            </div>
           </Container>
         </div>
       </section>
@@ -150,7 +161,7 @@ export default async function HomePage() {
                 <span className="h-px w-6 bg-accent" />
                 Usluge
               </span>
-              <h2 className="mt-2 text-3xl font-bold text-navy">Najtraženije usluge</h2>
+              <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Najtraženije usluge</h2>
             </div>
             <Link href="/cenovnik" className="hidden text-sm font-semibold text-accent hover:underline sm:block">
               Kompletan cenovnik →
@@ -180,8 +191,60 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* Featured products */}
+      {/* How it works */}
       <section className="bg-surface py-16">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-accent">
+              <span className="h-px w-6 bg-accent" />
+              Kako radimo
+              <span className="h-px w-6 bg-accent" />
+            </span>
+            <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">
+              Od poziva do hladnog vazduha u tri koraka
+            </h2>
+          </div>
+          <div className="relative mt-12 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-6">
+            <div className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden border-t-2 border-dashed border-accent/25 sm:block" />
+            {[
+              {
+                step: "1",
+                title: "Pozovite ili pošaljite upit",
+                text: "Opišite problem ili šta vam treba. Odmah dobijate okvirnu cenu i termin, bez čekanja.",
+              },
+              {
+                step: "2",
+                title: "Dolazak i dijagnostika",
+                text: "Serviser izlazi na teren u dogovoreno vreme, utvrđuje stanje i potvrđuje cenu pre početka rada.",
+              },
+              {
+                step: "3",
+                title: "Rešen problem, sa garancijom",
+                text: "Radovi se završavaju na licu mesta kad god je moguće. Na sve radove dajemo garanciju.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="relative text-center">
+                <span className="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-xl font-bold text-white shadow-lg shadow-accent/25">
+                  {item.step}
+                </span>
+                <h3 className="mt-5 text-lg font-semibold text-navy">{item.title}</h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm text-muted">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <a
+              href={`tel:${settings.phone.replace(/\s/g, "")}`}
+              className="inline-block rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-accent"
+            >
+              Pozovite {settings.phone}
+            </a>
+          </div>
+        </Container>
+      </section>
+
+      {/* Featured products */}
+      <section className="bg-white py-16">
         <Container>
           <div className="flex items-end justify-between">
             <div>
@@ -189,7 +252,7 @@ export default async function HomePage() {
                 <span className="h-px w-6 bg-accent" />
                 Katalog klima
               </span>
-              <h2 className="mt-2 text-3xl font-bold text-navy">Izdvojeni klima uređaji</h2>
+              <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Izdvojeni klima uređaji</h2>
             </div>
             <Link href="/shop" className="hidden text-sm font-semibold text-accent hover:underline sm:block">
               Kompletan katalog →
@@ -356,7 +419,7 @@ export default async function HomePage() {
                 <span className="h-px w-6 bg-accent" />
                 Blog
               </span>
-              <h2 className="mt-2 text-3xl font-bold text-navy">Korisni tekstovi o klimama</h2>
+              <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Korisni tekstovi o klimama</h2>
             </div>
             <Link href="/blog" className="hidden text-sm font-semibold text-accent hover:underline sm:block">
               Ceo blog →
