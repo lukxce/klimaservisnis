@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,6 +15,20 @@ import {
   getBlogPosts,
 } from "@/lib/data";
 import { formatServiceAreas } from "@/lib/format";
+import { SITE_URL } from "@/lib/site-config";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  const title = `Klima servis ${settings.city} | Servis, montaža i prodaja klima uređaja`;
+  const description = `Servis, montaža, popravka i prodaja klima uređaja u ${settings.city}u i okolini. Brz izlazak na teren, garancija na radove. Pozovite ${settings.phone}.`;
+
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: "/" },
+    openGraph: { title, description, type: "website", url: SITE_URL },
+  };
+}
 
 export default async function HomePage() {
   const [settings, featuredServices, featuredProducts, posts] = await Promise.all([
@@ -26,13 +41,23 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-surface to-white">
-        <Container className="grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-surface to-white">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage: "radial-gradient(rgba(11,21,38,0.14) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+            maskImage: "linear-gradient(to bottom, black, transparent 70%)",
+          }}
+        />
+        <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+        <Container className="relative grid grid-cols-1 items-center gap-10 py-16 md:grid-cols-2 md:py-24">
           <div>
-            <span className="text-sm font-semibold uppercase tracking-wide text-accent">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-sm font-semibold text-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {settings.title}
             </span>
-            <h1 className="mt-3 text-4xl font-bold leading-tight text-navy sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-navy sm:text-5xl">
               Servis, montaža i prodaja klima uređaja u {settings.city}u
             </h1>
             <p className="mt-4 max-w-md text-muted">
@@ -41,20 +66,31 @@ export default async function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/shop"
-                className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-dark"
+                className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark"
               >
                 Pogledajte klime
               </Link>
               <a
                 href="#usluge"
-                className="rounded-full border border-navy/15 px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-white"
+                className="rounded-full border border-navy/15 bg-white/60 px-6 py-3 text-sm font-semibold text-navy backdrop-blur transition hover:bg-navy hover:text-white"
               >
                 Pogledajte usluge
               </a>
             </div>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-navy/80">
+              <li className="flex items-center gap-2">
+                <span className="text-accent">✓</span> Izlazak na teren isti dan
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-accent">✓</span> Garancija na sve radove
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-accent">✓</span> Cena poznata unapred
+              </li>
+            </ul>
           </div>
           {settings.heroImageUrl ? (
-            <div className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
+            <div className="relative h-72 w-full overflow-hidden rounded-3xl shadow-xl shadow-navy/10 sm:h-96">
               <Image src={settings.heroImageUrl} alt={settings.title} fill className="object-cover" />
             </div>
           ) : (
@@ -64,6 +100,16 @@ export default async function HomePage() {
             />
           )}
         </Container>
+        <div className="relative border-t border-black/5 bg-white/70 backdrop-blur">
+          <Container className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-4 text-sm font-medium text-navy/50">
+            <span className="text-xs font-semibold uppercase tracking-wide text-navy/40">
+              Radimo sa brendovima
+            </span>
+            {settings.brands.map((brand) => (
+              <span key={brand}>{brand}</span>
+            ))}
+          </Container>
+        </div>
       </section>
 
       {/* Featured services */}

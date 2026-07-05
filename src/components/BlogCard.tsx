@@ -9,15 +9,15 @@ export function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg"
     >
-      <div className="relative h-40 w-full">
+      <div className="relative h-40 w-full overflow-hidden">
         {post.coverImageUrl ? (
           <Image
             src={post.coverImageUrl}
             alt={post.title}
             fill
-            className="object-cover"
+            className="object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
           <PlaceholderImage label={`Naslovna slika: ${post.title}`} className="h-40 w-full" />

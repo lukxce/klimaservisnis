@@ -4,7 +4,8 @@ export function ClosingCta({ phone }: { phone: string }) {
   return (
     <section className="py-10">
       <Container>
-        <div className="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-navy to-navy-light p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+        <div className="relative flex flex-col items-start gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-navy to-navy-light p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
           <div>
             <span className="text-sm font-semibold uppercase tracking-wide text-accent">
               Napomena

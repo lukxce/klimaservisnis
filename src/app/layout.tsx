@@ -57,6 +57,7 @@ export default async function RootLayout({
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
+    "@id": `${SITE_URL}/#business`,
     name: settings.title,
     url: SITE_URL,
     image: `${SITE_URL}/opengraph-image`,
@@ -90,7 +91,7 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang="sr" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="sr-Latn-RS" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <JsonLd data={localBusinessJsonLd} />
         <Header />
