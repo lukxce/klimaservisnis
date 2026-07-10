@@ -90,11 +90,11 @@ export function PageHero({
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`flex items-center justify-between gap-4 px-5 py-4 sm:block sm:rounded-2xl sm:border sm:border-black/5 sm:bg-white sm:p-5 sm:shadow-lg ${
+                className={`flex flex-col gap-0.5 px-5 py-4 sm:block sm:rounded-2xl sm:border sm:border-black/5 sm:bg-white sm:p-5 sm:shadow-lg ${
                   i !== stats.length - 1 ? "border-b border-black/5 sm:border-b-0" : ""
                 }`}
               >
-                <span className="text-sm text-muted sm:hidden">{stat.label}</span>
+                <span className="text-xs text-muted sm:hidden">{stat.label}</span>
                 <span className="font-bold sm:block">{stat.value}</span>
                 <span className="hidden text-sm text-muted sm:block">{stat.label}</span>
               </div>

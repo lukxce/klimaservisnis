@@ -126,18 +126,28 @@ export default async function ProductDetailPage(
               </span>
             )}
 
-            <div className="mt-6 grid grid-cols-3 gap-3">
-              <div className="rounded-xl bg-surface p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-muted">Vrsta</div>
-                <div className="mt-1 font-semibold text-navy">{product.type}</div>
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="min-w-0 rounded-xl bg-surface p-3 sm:p-4">
+                <div className="break-words text-[11px] font-semibold uppercase text-muted sm:text-xs sm:tracking-wide">
+                  Energetski razred
+                </div>
+                <div className="mt-1 truncate font-semibold text-navy">
+                  {product.specs?.energyClassCooling ?? "—"}
+                </div>
               </div>
-              <div className="rounded-xl bg-surface p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-muted">Kapacitet</div>
-                <div className="mt-1 font-semibold text-navy">{product.btu.toLocaleString("sr-Latn-RS")} BTU</div>
+              <div className="min-w-0 rounded-xl bg-surface p-3 sm:p-4">
+                <div className="break-words text-[11px] font-semibold uppercase text-muted sm:text-xs sm:tracking-wide">
+                  Kapacitet
+                </div>
+                <div className="mt-1 truncate font-semibold text-navy">
+                  {product.btu.toLocaleString("sr-Latn-RS")} BTU
+                </div>
               </div>
-              <div className="rounded-xl bg-surface p-4">
-                <div className="text-xs font-semibold uppercase tracking-wide text-muted">Proizvođač</div>
-                <div className="mt-1 font-semibold text-navy">{product.brand}</div>
+              <div className="min-w-0 rounded-xl bg-surface p-3 sm:p-4">
+                <div className="break-words text-[11px] font-semibold uppercase text-muted sm:text-xs sm:tracking-wide">
+                  Proizvođač
+                </div>
+                <div className="mt-1 truncate font-semibold text-navy">{product.brand}</div>
               </div>
             </div>
 
