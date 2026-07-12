@@ -4,8 +4,6 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]`
 
 export const servicesQuery = groq`*[_type == "service"] | order(order asc, _createdAt asc)`
 
-export const featuredServicesQuery = groq`*[_type == "service" && featured == true] | order(order asc)`
-
 export const serviceBySlugQuery = groq`*[_type == "service" && slug.current == $slug][0]`
 
 export const servicePagesQuery = groq`*[_type == "servicePage"]`

@@ -3,7 +3,6 @@ import { urlForImage } from "@/sanity/lib/image";
 import {
   siteSettingsQuery,
   servicesQuery,
-  featuredServicesQuery,
   serviceBySlugQuery,
   servicePagesQuery,
   servicePageBySlugQuery,
@@ -84,15 +83,6 @@ export async function getServices(): Promise<Service[]> {
   if (!cmsConfigured) return placeholderServices.map(mapService);
   const data = await client.fetch(servicesQuery);
   if (!data?.length) return placeholderServices.map(mapService);
-  return data.map(mapService);
-}
-
-export async function getFeaturedServices(): Promise<Service[]> {
-  if (!cmsConfigured)
-    return placeholderServices.filter((s) => s.featured).map(mapService);
-  const data = await client.fetch(featuredServicesQuery);
-  if (!data?.length)
-    return placeholderServices.filter((s) => s.featured).map(mapService);
   return data.map(mapService);
 }
 

@@ -4,13 +4,12 @@ import Image from "next/image";
 
 import { Container } from "@/components/Container";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
-import { ServiceCard } from "@/components/ServiceCard";
 import { ProductCard } from "@/components/ProductCard";
 import { BlogCard } from "@/components/BlogCard";
 import { ClosingCta } from "@/components/ClosingCta";
 import {
   getSiteSettings,
-  getFeaturedServices,
+  getServicePages,
   getFeaturedProducts,
   getBlogPosts,
 } from "@/lib/data";
@@ -31,9 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [settings, featuredServices, featuredProducts, posts] = await Promise.all([
+  const [settings, servicePages, featuredProducts, posts] = await Promise.all([
     getSiteSettings(),
-    getFeaturedServices(),
+    getServicePages(),
     getFeaturedProducts(),
     getBlogPosts(),
   ]);
@@ -129,9 +128,12 @@ export default async function HomePage() {
           </div>
         </Container>
         <div className="relative border-t border-black/5 bg-white/60 backdrop-blur">
-          <Container className="py-4">
+          <Container className="py-5">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Brendovi sa kojima radimo
+            </p>
             <div
-              className="relative overflow-hidden"
+              className="relative mt-6 overflow-hidden"
               style={{
                 maskImage:
                   "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
@@ -152,7 +154,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured services */}
+      {/* Usluge */}
       <section id="usluge" className="scroll-mt-24 py-16">
         <Container>
           <div className="flex items-end justify-between">
@@ -161,17 +163,43 @@ export default async function HomePage() {
                 <span className="h-px w-6 bg-accent" />
                 Usluge
               </span>
-              <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Najtraženije usluge</h2>
+              <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Naše usluge</h2>
             </div>
             <Link href="/cenovnik" className="hidden text-sm font-semibold text-accent hover:underline sm:block">
               Kompletan cenovnik →
             </Link>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredServices.map((service, i) => (
-              <div key={service.slug} className={i === 3 ? "hidden sm:block" : ""}>
-                <ServiceCard service={service} />
-              </div>
+            {servicePages.map((page) => (
+              <Link
+                key={page.slug}
+                href={`/usluge/${page.slug}`}
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg"
+              >
+                <div className="relative h-40 w-full overflow-hidden">
+                  {page.imageUrl ? (
+                    <Image
+                      src={page.imageUrl}
+                      alt={page.title}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <PlaceholderImage label={`Slika: ${page.title}`} className="h-40 w-full" />
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col gap-2 p-5">
+                  <h3 className="font-semibold text-navy group-hover:text-accent">
+                    {page.title}
+                  </h3>
+                  {page.heroSubtitle && (
+                    <p className="text-sm text-muted">{page.heroSubtitle}</p>
+                  )}
+                  <span className="mt-auto pt-2 text-sm font-semibold text-accent">
+                    Saznajte više →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:hidden">
