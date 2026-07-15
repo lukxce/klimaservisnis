@@ -143,10 +143,21 @@ export default async function UslugaDetailPage(
             </span>
             <h2 className="mt-2 text-2xl font-bold text-navy">Cenovnik: {page.title.toLowerCase()}</h2>
             <div className="mt-5 space-y-3">
-              {relatedServices.map((service) => (
+              {relatedServices.slice(0, 4).map((service) => (
                 <ServiceRow key={service.slug} service={service} />
               ))}
             </div>
+            {relatedServices.length > 4 && (
+              <div
+                className="mt-3 max-h-14 overflow-hidden"
+                style={{
+                  maskImage: "linear-gradient(to bottom, black, transparent)",
+                  WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+                }}
+              >
+                <ServiceRow service={relatedServices[4]} />
+              </div>
+            )}
             <Link
               href="/cenovnik"
               className="mt-4 inline-block text-sm font-semibold text-accent hover:underline"
