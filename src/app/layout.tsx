@@ -9,6 +9,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { getSiteSettings } from "@/lib/data";
 import { SITE_URL } from "@/lib/site-config";
 
+// Content lives in Sanity now — without this, every static page is frozen
+// at build time and Studio edits never show up without a full redeploy.
+export const revalidate = 60;
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
