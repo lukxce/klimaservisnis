@@ -42,8 +42,6 @@ export type Service = {
   priceTo?: number;
   priceNote?: string;
   featured?: boolean;
-  imageUrl?: string;
-  body?: unknown;
 };
 
 export type ChecklistItem = {

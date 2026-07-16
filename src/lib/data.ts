@@ -74,8 +74,6 @@ function mapService(raw: any): Service {
     priceTo: raw.priceTo,
     priceNote: raw.priceNote,
     featured: raw.featured,
-    imageUrl: imgUrl(raw.image),
-    body: raw.body,
   };
 }
 

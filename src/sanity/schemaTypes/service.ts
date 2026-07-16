@@ -54,17 +54,6 @@ export const service = defineType({
       description: 'npr. "zavisi od BTU kapaciteta"',
     }),
     defineField({
-      name: 'body',
-      title: 'Detaljan opis',
-      type: 'array',
-      of: [{type: 'block'}],
-    }),
-    defineField({
-      name: 'image',
-      title: 'Slika',
-      type: 'image',
-    }),
-    defineField({
       name: 'featured',
       title: 'Istaknuto na početnoj',
       type: 'boolean',
