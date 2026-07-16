@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { PlaceholderImage } from "@/components/PlaceholderImage";
-import { formatEur } from "@/lib/format";
+import { formatRsd } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -41,10 +41,10 @@ export function ProductCard({ product }: { product: Product }) {
         </h3>
         <p className="text-sm text-muted">{product.shortDescription}</p>
         <div className="mt-auto flex items-center gap-2 pt-2">
-          <span className="text-lg font-bold text-navy">{formatEur(product.price)}</span>
+          <span className="text-lg font-bold text-navy">{formatRsd(product.price)}</span>
           {product.oldPrice && (
             <span className="text-sm text-muted line-through">
-              {formatEur(product.oldPrice)}
+              {formatRsd(product.oldPrice)}
             </span>
           )}
         </div>

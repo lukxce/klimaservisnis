@@ -8,7 +8,7 @@ import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { RichText } from "@/components/RichText";
 import { JsonLd } from "@/components/JsonLd";
 import { getProductBySlug, getProducts, getSiteSettings } from "@/lib/data";
-import { formatEur } from "@/lib/format";
+import { formatRsd } from "@/lib/format";
 import { SITE_URL } from "@/lib/site-config";
 
 export async function generateStaticParams() {
@@ -25,10 +25,10 @@ export async function generateMetadata(
 
   const title =
     product.seo?.title ??
-    `${product.title} | ${product.btu.toLocaleString("sr-Latn-RS")} BTU, cena ${formatEur(product.price)}`;
+    `${product.title} | ${product.btu.toLocaleString("sr-Latn-RS")} BTU, cena ${formatRsd(product.price)}`;
   const description =
     product.seo?.description ??
-    `${product.shortDescription} Cena ${formatEur(product.price)}${product.installationIncluded ? " sa montažom uključenom" : ""}.`;
+    `${product.shortDescription} Cena ${formatRsd(product.price)}${product.installationIncluded ? " sa montažom uključenom" : ""}.`;
 
   return {
     title,
@@ -72,7 +72,7 @@ export default async function ProductDetailPage(
     description: product.shortDescription,
     offers: {
       "@type": "Offer",
-      priceCurrency: "EUR",
+      priceCurrency: "RSD",
       price: product.price,
       priceValidUntil,
       availability: "https://schema.org/InStock",
@@ -115,9 +115,9 @@ export default async function ProductDetailPage(
             <h1 className="mt-1 text-3xl font-bold text-navy sm:text-4xl">{product.title}</h1>
 
             <div className="mt-4 flex items-center gap-3">
-              <span className="text-3xl font-bold text-navy">{formatEur(product.price)}</span>
+              <span className="text-3xl font-bold text-navy">{formatRsd(product.price)}</span>
               {product.oldPrice && (
-                <span className="text-lg text-muted line-through">{formatEur(product.oldPrice)}</span>
+                <span className="text-lg text-muted line-through">{formatRsd(product.oldPrice)}</span>
               )}
             </div>
             {product.installationIncluded && (

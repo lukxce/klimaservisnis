@@ -47,13 +47,13 @@ export const product = defineType({
     }),
     defineField({
       name: 'price',
-      title: 'Cena (EUR)',
+      title: 'Cena (RSD)',
       type: 'number',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'oldPrice',
-      title: 'Stara cena (EUR, za popust)',
+      title: 'Stara cena (RSD, za popust)',
       type: 'number',
     }),
     defineField({
