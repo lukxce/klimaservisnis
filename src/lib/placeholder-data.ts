@@ -28,7 +28,7 @@ export const siteSettings = {
   tagline: "Servis, montaža i prodaja klima uređaja u Nišu",
   phone: "060 1234 567",
   phoneSecondary: "018 123 456",
-  email: "info@klimaservisnis.rs",
+  email: "info@servisklimenis.rs",
   address: "Vožda Karađorđa 15, Niš",
   city: "Niš",
   serviceAreas: ["Niš", "Niška Banja", "Medijana", "Pantelej", "Crveni Krst", "Palilula"],

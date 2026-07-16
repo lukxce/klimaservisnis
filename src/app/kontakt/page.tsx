@@ -8,14 +8,19 @@ import { SITE_URL } from "@/lib/site-config";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
-  const title = `Kontakt | ${settings.title}`;
+  const title = "Kontakt";
   const description = `Pozovite ${settings.phone} ili nas posetite u ${settings.address ?? settings.city}. Radno vreme: ${settings.workingHours ?? ""}.`;
 
   return {
     title,
     description,
     alternates: { canonical: "/kontakt" },
-    openGraph: { title, description, type: "website", url: `${SITE_URL}/kontakt` },
+    openGraph: {
+      title: `${title} | ${settings.title}`,
+      description,
+      type: "website",
+      url: `${SITE_URL}/kontakt`,
+    },
   };
 }
 
