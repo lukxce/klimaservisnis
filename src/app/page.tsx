@@ -103,7 +103,8 @@ export default async function HomePage() {
                   src={settings.heroImageUrl}
                   alt={settings.title}
                   fill
-                  priority
+                  loading="eager"
+                  fetchPriority="high"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
