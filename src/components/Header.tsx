@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/Container";
+import { Logo } from "@/components/Logo";
 import { MobileMenu } from "@/components/MobileMenu";
 import { getSiteSettings } from "@/lib/data";
 
@@ -37,8 +38,8 @@ export async function Header() {
         <div className="flex justify-start">
           <MobileMenu serviceLinks={serviceLinks} navLinks={navLinks} />
         </div>
-        <Link href="/" className="truncate text-center text-base font-bold text-navy">
-          {settings.title}
+        <Link href="/" className="min-w-0 text-center text-base font-bold text-navy">
+          <Logo title={settings.title} className="justify-center" />
         </Link>
         <div className="flex justify-end">
           <Link
@@ -53,7 +54,7 @@ export async function Header() {
       {/* Desktop red */}
       <Container className="hidden items-center justify-between py-4 md:flex">
         <Link href="/" className="text-lg font-bold text-navy">
-          {settings.title}
+          <Logo title={settings.title} />
         </Link>
         <nav className="flex items-center gap-6 text-sm font-medium text-navy">
           <div className="group relative">
