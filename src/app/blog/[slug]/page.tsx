@@ -122,7 +122,13 @@ export default async function BlogPostPage(
             <div className="mt-6">
               {post.coverImageUrl ? (
                 <div className="relative h-72 w-full overflow-hidden rounded-3xl">
-                  <Image src={post.coverImageUrl} alt={post.title} fill className="object-cover" />
+                  <Image
+                    src={post.coverImageUrl}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 768px"
+                    className="object-cover"
+                  />
                 </div>
               ) : (
                 <PlaceholderImage label={`Naslovna slika: ${post.title}`} className="h-72 w-full rounded-3xl" />

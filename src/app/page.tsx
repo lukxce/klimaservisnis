@@ -99,7 +99,14 @@ export default async function HomePage() {
           <div className="relative">
             {settings.heroImageUrl ? (
               <div className="relative h-72 w-full overflow-hidden rounded-3xl shadow-xl shadow-navy/10 sm:h-[26rem]">
-                <Image src={settings.heroImageUrl} alt={settings.title} fill className="object-cover" />
+                <Image
+                  src={settings.heroImageUrl}
+                  alt={settings.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
             ) : (
               <PlaceholderImage
@@ -182,6 +189,7 @@ export default async function HomePage() {
                       src={page.imageUrl}
                       alt={page.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
                   ) : (
@@ -308,7 +316,13 @@ export default async function HomePage() {
         <Container className="relative grid grid-cols-1 items-center gap-10 md:grid-cols-2">
           {settings.aboutImageUrl ? (
             <div className="relative h-72 w-full overflow-hidden rounded-3xl ring-1 ring-white/10 sm:h-96">
-              <Image src={settings.aboutImageUrl} alt={settings.title} fill className="object-cover" />
+              <Image
+                src={settings.aboutImageUrl}
+                alt={settings.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           ) : (
             <PlaceholderImage

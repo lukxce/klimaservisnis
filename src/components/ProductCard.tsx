@@ -17,6 +17,7 @@ export function ProductCard({ product }: { product: Product }) {
             src={product.imageUrl}
             alt={product.title}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-contain p-2 transition duration-500 group-hover:scale-105"
           />
         ) : (

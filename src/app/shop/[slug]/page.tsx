@@ -107,7 +107,13 @@ export default async function ProductDetailPage(
           <div>
             {product.imageUrl ? (
               <div className="relative h-96 w-full overflow-hidden rounded-3xl border border-black/5 bg-surface">
-                <Image src={product.imageUrl} alt={product.title} fill className="object-contain p-3" />
+                <Image
+                  src={product.imageUrl}
+                  alt={product.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain p-3"
+                />
               </div>
             ) : (
               <PlaceholderImage
