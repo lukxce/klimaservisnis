@@ -24,7 +24,7 @@ function bullets(items: string[]) {
 }
 
 export const siteSettings = {
-  title: "Moj Klima Servis Niš",
+  title: "Servis Klime Niš",
   tagline: "Servis, montaža i prodaja klima uređaja u Nišu",
   phone: "062 1337 373",
   phoneSecondary: "018 123 456",
