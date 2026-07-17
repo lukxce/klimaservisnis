@@ -11,19 +11,19 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/shop/${product.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg"
     >
-      <div className="relative h-44 w-full overflow-hidden bg-surface">
+      <div className="relative h-56 w-full overflow-hidden bg-surface">
         {product.imageUrl ? (
           <Image
             src={product.imageUrl}
             alt={product.title}
             fill
-            className="object-contain p-6 transition duration-500 group-hover:scale-105"
+            className="object-contain p-2 transition duration-500 group-hover:scale-105"
           />
         ) : (
           <PlaceholderImage
             label={`Slika: ${product.title}`}
             tone="light"
-            className="h-44 w-full"
+            className="h-56 w-full"
           />
         )}
       </div>

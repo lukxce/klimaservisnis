@@ -11,6 +11,16 @@ import { getProductBySlug, getProducts, getSiteSettings } from "@/lib/data";
 import { formatRsd } from "@/lib/format";
 import { SITE_URL } from "@/lib/site-config";
 
+// Some products only have a single-sentence description, so the "short"
+// teaser and the full body end up being the exact same text - skip
+// rendering the body a second time when that happens.
+function isDescriptionRedundant(description: unknown, shortDescription: string): boolean {
+  if (!Array.isArray(description) || description.length !== 1) return false;
+  const block = description[0] as { children?: { text?: string }[] };
+  const text = block?.children?.map((c) => c.text ?? "").join("") ?? "";
+  return text.trim() === shortDescription.trim();
+}
+
 export async function generateStaticParams() {
   const products = await getProducts();
   return products.map((product) => ({ slug: product.slug }));
@@ -96,8 +106,8 @@ export default async function ProductDetailPage(
         <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
             {product.imageUrl ? (
-              <div className="relative h-80 w-full overflow-hidden rounded-3xl border border-black/5 bg-surface">
-                <Image src={product.imageUrl} alt={product.title} fill className="object-contain p-8" />
+              <div className="relative h-96 w-full overflow-hidden rounded-3xl border border-black/5 bg-surface">
+                <Image src={product.imageUrl} alt={product.title} fill className="object-contain p-3" />
               </div>
             ) : (
               <PlaceholderImage
@@ -237,7 +247,10 @@ export default async function ProductDetailPage(
             </div>
           )}
 
-          {product.description ? <RichText value={product.description} /> : null}
+          {product.description &&
+          !isDescriptionRedundant(product.description, product.shortDescription) ? (
+            <RichText value={product.description} />
+          ) : null}
         </div>
       </Container>
     </>
