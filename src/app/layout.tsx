@@ -16,13 +16,11 @@ export const revalidate = 60;
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "optional",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "optional",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
