@@ -15,12 +15,15 @@ export const revalidate = 60;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  // latin-ext covers Č Ć Đ Š Ž - without it that range isn't preloaded and
+  // the browser only discovers it needs that file mid-render (~1s late on
+  // the critical path, confirmed via PageSpeed's network dependency tree).
+  subsets: ["latin", "latin-ext"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
