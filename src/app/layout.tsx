@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -13,23 +14,16 @@ import { SITE_URL } from "@/lib/site-config";
 // at build time and Studio edits never show up without a full redeploy.
 export const revalidate = 60;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  // Deliberately NOT preloading latin-ext (Č Ć Đ Š Ž): preloading it makes
-  // it arrive early enough to trigger the font-swap reflow during the CLS
-  // measurement window (confirmed via PageSpeed). Left un-preloaded, the
-  // swap still happens but later, outside that window. Trade-off: ~1s
-  // slower font discovery vs a CLS regression. See git history before
-  // reaching for display:"optional" here - it broke Serbian diacritics
-  // under throttled network conditions (Latin Extended-A arrives late,
-  // permanently falls back to Arial for just that glyph range).
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Self-hosted Geist via the official `geist` package (next/font/local under
+// the hood) instead of next/font/google. The Google CDN splits Geist into
+// separate per-unicode-range files, so the Serbian glyphs (Č Ž Š Ć Đ) live
+// in a file that either loads late (hurts LCP) or, if preloaded, swaps during
+// the CLS window (hurts CLS) - no setting wins both. This ships one variable
+// woff2 covering the full charset, preloaded, so text renders in Geist from
+// first paint: no late-discovered subset file, no swap reflow. Same
+// --font-geist-sans/-mono CSS variables, so nothing downstream changes.
+const geistSans = GeistSans;
+const geistMono = GeistMono;
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
