@@ -40,9 +40,9 @@ export default async function ShopPage() {
       <JsonLd data={breadcrumbJsonLd} />
 
       <PageHero
-        eyebrow="Shop"
-        title="Prodaja klima uređaja sa ugradnjom"
-        subtitle={`Svi uređaji dolaze sa profesionalnom montažom uključenom u cenu i garancijom. Radimo sa brendovima: ${settings.brands.join(", ")}.`}
+        eyebrow="Prodaja"
+        title={`Prodaja klima uređaja u ${settings.city}u`}
+        subtitle={`Klima uređaji sa profesionalnom montažom uključenom u cenu i garancijom, isporuka i ugradnja u ${settings.city}u i okolini. Radimo sa brendovima: ${settings.brands.join(", ")}.`}
         stats={[
           { value: `${products.length} modela`, label: "u ponudi" },
           { value: `${settings.brands.length} brendova`, label: "provereni proizvođači" },
