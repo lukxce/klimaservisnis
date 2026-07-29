@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getProductBySlug, getProducts, getSiteSettings } from "@/lib/data";
 import { formatRsd } from "@/lib/format";
 import { SITE_URL } from "@/lib/site-config";
+import { brandSlug, btuBucket, capacitySlug } from "@/lib/shop-taxonomy";
 
 // Some products only have a single-sentence description, so the "short"
 // teaser and the full body end up being the exact same text - skip
@@ -175,6 +176,21 @@ export default async function ProductDetailPage(
               >
                 {settings.phone}
               </a>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <Link
+                href={`/shop/marka/${brandSlug(product.brand)}`}
+                className="font-semibold text-accent hover:underline"
+              >
+                Svi {product.brand} modeli →
+              </Link>
+              <Link
+                href={`/shop/kapacitet/${capacitySlug(btuBucket(product.btu))}`}
+                className="font-semibold text-accent hover:underline"
+              >
+                Svi modeli od {btuBucket(product.btu).toLocaleString("sr-Latn-RS")} BTU →
+              </Link>
             </div>
           </div>
         </div>

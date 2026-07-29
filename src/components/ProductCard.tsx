@@ -3,14 +3,12 @@ import Image from "next/image";
 
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { formatRsd } from "@/lib/format";
+import { brandSlug, btuBucket, capacitySlug } from "@/lib/shop-taxonomy";
 import type { Product } from "@/lib/types";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Link
-      href={`/shop/${product.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg"
-    >
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg">
       <div className="relative h-56 w-full overflow-hidden bg-surface">
         {product.imageUrl ? (
           <Image
@@ -30,13 +28,19 @@ export function ProductCard({ product }: { product: Product }) {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <div className="flex items-center gap-2 text-xs">
-          <span className="rounded-full bg-surface px-2 py-1 font-medium text-navy">
+        <div className="relative z-10 flex items-center gap-2 text-xs">
+          <Link
+            href={`/shop/marka/${brandSlug(product.brand)}`}
+            className="rounded-full bg-surface px-2 py-1 font-medium text-navy hover:bg-accent/10 hover:text-accent"
+          >
             {product.brand}
-          </span>
-          <span className="rounded-full bg-surface px-2 py-1 font-medium text-navy">
+          </Link>
+          <Link
+            href={`/shop/kapacitet/${capacitySlug(btuBucket(product.btu))}`}
+            className="rounded-full bg-surface px-2 py-1 font-medium text-navy hover:bg-accent/10 hover:text-accent"
+          >
             {product.btu.toLocaleString("sr-Latn-RS")} BTU
-          </span>
+          </Link>
         </div>
         <h3 className="font-semibold text-navy group-hover:text-accent">
           {product.title}
@@ -57,6 +61,11 @@ export function ProductCard({ product }: { product: Product }) {
           Pogledaj model
         </span>
       </div>
-    </Link>
+      <Link
+        href={`/shop/${product.slug}`}
+        className="absolute inset-0"
+        aria-label={product.title}
+      />
+    </div>
   );
 }
