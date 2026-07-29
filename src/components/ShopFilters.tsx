@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { ProductCard } from "@/components/ProductCard";
+import { btuBucket } from "@/lib/shop-taxonomy";
 import type { Product } from "@/lib/types";
 
 const ALL = "Sve";
@@ -35,7 +36,7 @@ export function ShopFilters({ products }: { products: Product[] }) {
     [products],
   );
   const btuOptions = useMemo(
-    () => [ALL, ...Array.from(new Set(products.map((p) => p.btu))).sort((a, b) => a - b)],
+    () => [ALL, ...Array.from(new Set(products.map((p) => btuBucket(p.btu)))).sort((a, b) => a - b)],
     [products],
   );
   const brands = useMemo(
@@ -46,7 +47,7 @@ export function ShopFilters({ products }: { products: Product[] }) {
   const filtered = products.filter(
     (p) =>
       (type === ALL || p.type === type) &&
-      (btu === ALL || p.btu === Number(btu)) &&
+      (btu === ALL || btuBucket(p.btu) === Number(btu)) &&
       (brand === ALL || p.brand === brand),
   );
 

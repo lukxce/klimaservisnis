@@ -222,18 +222,18 @@ type CapacityHub = {
 export const CAPACITY_HUBS: CapacityHub[] = [
   {
     btu: 9000,
-    colloquial: "9-ica",
+    colloquial: "9-tka",
     roomSize: "do 20-25 kvadrata",
     installFrom: 8000,
     intro: [
-      "Klima od 9000 BTU, u žargonu poznata kao '9-ica', pokriva prostorije do otprilike 20-25 kvadrata - tipično spavaće sobe, manje kancelarije ili dečije sobe. Ako imate standardnu spavaću sobu u stanu ili kući u Nišu, ovo je najčešće dovoljan kapacitet.",
+      "Klima od 9000 BTU, u žargonu poznata kao '9-tka', pokriva prostorije do otprilike 20-25 kvadrata - tipično spavaće sobe, manje kancelarije ili dečije sobe. Ako imate standardnu spavaću sobu u stanu ili kući u Nišu, ovo je najčešće dovoljan kapacitet.",
       "Slabiji uređaj troši manje struje po satu rada, ali ako je prostorija veća od preporučene, klima će raditi na punom kapacitetu duže i teže će održavati temperaturu - zato je bitno da kapacitet odgovara kvadraturi, a ne samo budžetu.",
     ],
     faq: [
       {
         question: "Za koji kvadrat je dovoljna klima od 9000 BTU?",
         answer:
-          "9000 BTU, odnosno '9-ica', dovoljna je za prostorije do oko 20-25 kvadrata, pod uslovom da je izolacija standardna i da nema izuzetno velikih staklenih površina.",
+          "9000 BTU, odnosno '9-tka', dovoljna je za prostorije do oko 20-25 kvadrata, pod uslovom da je izolacija standardna i da nema izuzetno velikih staklenih površina.",
       },
       {
         question: "Koliko košta ugradnja klime od 9000 BTU u Nišu?",
@@ -241,7 +241,7 @@ export const CAPACITY_HUBS: CapacityHub[] = [
           "Montaža standardnog uređaja od 9000 BTU košta od 8000 dinara, uključujući osnovnu instalaciju do tri metra. Cena samog uređaja prikazana je na stranici svakog modela.",
       },
       {
-        question: "Da li je 9-ica dovoljna za dnevnu sobu?",
+        question: "Da li je 9-tka dovoljna za dnevnu sobu?",
         answer:
           "Za manje dnevne sobe do 20 kvadrata da, ali za veće ili otvorene prostore preporučujemo 12000 BTU ili jači uređaj kako klima ne bi neprekidno radila na maksimumu.",
       },
