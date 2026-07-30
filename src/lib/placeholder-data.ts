@@ -392,6 +392,7 @@ export type BlogPostItem = {
   excerpt: string;
   summary: string;
   keyTakeaways: string[];
+  coverImageUrl?: string;
   publishedAt: string;
   body: unknown[];
   faq: { question: string; answer: string }[];
@@ -749,6 +750,7 @@ export const blogPosts: BlogPostItem[] = [
       "Pravilno odabrana jačina smanjuje potrošnju više nego energetska klasa samog uređaja",
       "Prljav filter može povećati potrošnju za 15 do 25 posto jer kompresor radi duže",
     ],
+    coverImageUrl: "/images/blog/koliko-struje-trosi-klima-uredaj.webp",
     publishedAt: "2026-07-30",
     body: [
       p("Klima uredaj je daleko najveći pojedinačni potrošač struje u većini domaćinstava u Nišu tokom leta. Uprkos tome, malo ko zna koliko tačno troši njegov uređaj, pa se račun za jul i avgust dočekuje sa iznenađenjem. U ovom tekstu su konkretne cifre po jačini i tipu uređaja, preračunate na mesečni trošak po važećim EPS tarifama, da biste mogli da procenite šta vas klima zaista košta i gde se može uštedeti."),
@@ -804,6 +806,7 @@ export const blogPosts: BlogPostItem[] = [
       "Curenje se retko rešava samo, odlaganje oštećuje zid i pod",
       "Redovan servis sprečava većinu uzroka curenja",
     ],
+    coverImageUrl: "/images/blog/zasto-klima-curi-vodu.webp",
     publishedAt: "2026-07-30",
     body: [
       p("Klima koja curi vodu po zidu ili na pod je jedan od najčešćih razloga za poziv serviseru u Nišu tokom leta. Problem izgleda alarmantan, ali uzrok je u većini slučajeva jednostavan i rešiv jednom servisnom intervencijom. Ono što ga čini ozbiljnim nije tehnika nego posledice: voda u zidu, vlaga na plafonu susednog stana, oštećenje poda. Zato ga ne treba gurati za sledeću sezonu."),
