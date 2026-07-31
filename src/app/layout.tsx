@@ -12,7 +12,7 @@ import { SITE_URL } from "@/lib/site-config";
 
 // Content lives in Sanity now — without this, every static page is frozen
 // at build time and Studio edits never show up without a full redeploy.
-export const revalidate = 3600;
+export const revalidate = 60;
 
 // Self-hosted Geist via the official `geist` package (next/font/local under
 // the hood) instead of next/font/google. The Google CDN splits Geist into
