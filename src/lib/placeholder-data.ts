@@ -837,6 +837,210 @@ export const blogPosts: BlogPostItem[] = [
       { question: "Koliko često treba prati filter da bih sprečio curenje?", answer: "Tokom sezone hlađenja, jednom mesečno je sasvim dovoljno. Filter se izvadi, ispere pod mlazom vode, osuši i vrati. Ceo posao traje par minuta." },
     ],
   },
+  {
+    slug: "klima-za-grejanje-zimi-u-nisu-racunica",
+    title: "Klima za grejanje zimi u Nišu: COP, temperature i poređenje sa toplanom",
+    category: "saveti",
+    excerpt:
+      "Koliko klima stvarno košta po kilovat-satu toplote na nula, na minus pet i na minus deset stepeni, i kako to stoji u odnosu na niškou toplanu i gas.",
+    summary:
+      "Klima greje tako što prenosi toplotu, a ne što je proizvodi, pa za jedan utrošen kilovat-sat struje daje tri do četiri kilovat-sata toplote pri blagim temperaturama. U niškim uslovima to znači jeftinije grejanje od toplane i gasa tokom oktobra, novembra, marta i aprila, dok se na temperaturama ispod minus pet stepeni prednost smanjuje, a ispod minus deset praktično nestaje.",
+    keyTakeaways: [
+      "COP je odnos dobijene toplote i utrošene struje, a menja se sa spoljnom temperaturom",
+      "Na 7 stepeni napolju dobar inverter ima COP oko 4, na nuli oko 3, na minus 7 oko 2",
+      "U Nišu je preko osamdeset posto sezone grejanja iznad minus pet stepeni",
+      "Pri COP 3 kilovat-sat toplote iz klime košta oko 3,5 dinara, jeftinije od gasa i toplane",
+      "Klima nije samo za hlađenje, ali ni zamena za grejanje u najhladnijim nedeljama",
+    ],
+    publishedAt: "2026-08-05",
+    body: [
+      p("Najveća zabluda o klima uređajima u Nišu je da su to mašine za leto koje zimi stoje. Skoro svaki uređaj koji smo ugradili u poslednjih deset godina radi i u režimu grejanja, i veliki deo klijenata to jednostavno ne koristi. Ovaj tekst se bavi konkretnim brojevima: koliko klima košta po kilovat-satu toplote na različitim spoljnim temperaturama, i kako to stoji u odnosu na toplanu i gas u Nišu."),
+      h2("Zašto klima uopšte može da bude jeftinija od grejalice"),
+      p("Električna grejalica pretvara struju u toplotu jedan prema jedan. Za jedan utrošen kilovat-sat struje dobijete tačno jedan kilovat-sat toplote, i bolje od toga fizički ne može."),
+      p("Klima uređaj ne proizvodi toplotu nego je premešta. Rashladni sistem uzima toplotu iz spoljnog vazduha, koja tamo postoji i na minus deset stepeni, i prebacuje je u prostoriju. Struja se troši samo na rad kompresora i ventilatora, ne na stvaranje toplote. Zato jedan kilovat-sat struje može da isporuči tri, četiri ili više kilovat-sati toplote."),
+      p("Taj odnos se zove COP, koeficijent grejnog učinka. COP 3,5 znači da za svaki kilovat-sat struje dobijate tri i po kilovat-sata toplote u prostoriji."),
+      h2("Kako COP pada sa spoljnom temperaturom"),
+      p("Ključna stvar koju treba razumeti je da COP nije fiksan broj. Što je napolju hladnije, to je manje toplote u spoljnom vazduhu i kompresor mora više da radi za istu isporučenu toplotu. Za prosečan kvalitetan inverter uređaj, orijentacione vrednosti izgledaju ovako:"),
+      bullets([
+        "Spoljna temperatura 12 stepeni: COP oko 4,5 do 5",
+        "Spoljna temperatura 7 stepeni: COP oko 4",
+        "Spoljna temperatura 2 stepena: COP oko 3,2",
+        "Spoljna temperatura minus 2 stepena: COP oko 2,7",
+        "Spoljna temperatura minus 7 stepeni: COP oko 2 do 2,3",
+        "Spoljna temperatura minus 12 stepeni: COP oko 1,5 do 1,8",
+      ]),
+      p("Na tom donjem kraju se dodaje još jedan trošak koji se ne vidi u deklarisanim brojevima: odmrzavanje. Kada je napolju blizu nule i vlažno, na spoljnoj jedinici se stvara inje, pa uređaj periodično prekida grejanje i troši energiju na topljenje tog leda. To je najizraženije oko nule uz visoku vlažnost, dakle baš u tipičnom niškom decembarskom jutru sa maglom."),
+      h2("Koliko dana u niškoj zimi je zapravo hladno"),
+      p("Ovo je mesto gde lokalni podaci menjaju zaključak. Niš ima blažu zimu od Vojvodine i od većine planinskih delova Srbije. Prosečna januarska temperatura je oko nula stepeni, a dani sa temperaturom trajno ispod minus pet stepeni broje se u desetinama, ne u mesecima. Kroz celu sezonu grejanja, od sredine oktobra do sredine aprila, veliki deo vremena spoljna temperatura je između nule i deset stepeni, dakle tačno u opsegu u kom klima radi sa COP između tri i četiri."),
+      p("Praktična posledica: procenjeno preko osamdeset posto sati sezone grejanja u Nišu provede se iznad minus pet stepeni. To znači da klima veći deo sezone radi u svom povoljnom opsegu, a ne u onom problematičnom."),
+      h2("Konkretna računica po kilovat-satu toplote"),
+      p("Uzmimo prosečnu cenu struje za domaćinstvo, sa svim dažbinama i sa uračunatom činjenicom da vas grejanje strujom gura u viši obračunski blok, na okvirno deset do dvanaest dinara po kilovat-satu. Uz to, cena kilovat-sata isporučene toplote iz klime izgleda ovako:"),
+      bullets([
+        "Pri COP 4 (blagi dani, oko 7 stepeni napolju): oko 2,7 dinara po kilovat-satu toplote",
+        "Pri COP 3 (oko nule): oko 3,7 dinara po kilovat-satu toplote",
+        "Pri COP 2 (oko minus 7): oko 5,5 dinara po kilovat-satu toplote",
+        "Pri COP 1,5 (ispod minus 10): oko 7,3 dinara po kilovat-satu toplote",
+      ]),
+      h3("Kako to stoji prema gasu"),
+      p("Kubni metar prirodnog gasa nosi oko 9,5 kilovat-sati energije, a kotao od toga iskoristi oko devedeset posto, dakle oko 8,5 kilovat-sati korisne toplote. Uz cenu gasa za domaćinstva koja se kreće oko pedeset pet do šezdeset dinara po kubnom metru, kilovat-sat toplote iz gasa dolazi na oko šest i po do sedam dinara, ne računajući fiksni deo računa i servis kotla."),
+      p("To znači da je klima jeftinija od gasa sve dok je COP iznad otprilike dva, dakle na svim spoljnim temperaturama iznad približno minus sedam stepeni. U Nišu je to najveći deo sezone."),
+      h3("Kako to stoji prema toplani"),
+      p("Poređenje sa daljinskim grejanjem je komplikovanije, jer se kod velikog broja korisnika ne plaća po utrošenoj energiji nego po kvadratu, sa fiksnom mesečnom stavkom kroz sezonu. Kod takvog obračuna klima ne može da vam smanji račun toplane, jer on ne zavisi od toga koliko trošite. Klima tu ima drugu ulogu: da dogreje prostoriju koja je najhladnija, ili da pokrije oktobar i april kada grejanje još nije ili više nije uključeno."),
+      p("Kod korisnika sa ugrađenim kalorimetrom i naplatom po utrošku, poređenje je direktno i klima u povoljnom opsegu temperatura po pravilu izlazi jeftinije, posebno ako se greje jedna ili dve prostorije umesto celog stana."),
+      h2("Kada klima ima najviše smisla u Nišu"),
+      bullets([
+        "Oktobar, novembar, mart i april, kada je napolju iznad pet stepeni i grejna sezona još nije počela ili je već završena",
+        "Stanovi sa naplatom toplane po kalorimetru, gde svaki nepotrošen kilovat-sat znači manji račun",
+        "Prostorije koje se koriste povremeno, radna soba ili spavaća soba, gde nema smisla grejati ceo stan",
+        "Kuće sa etažnim grejanjem na struju, gde klima jednostavno zamenjuje skuplji način trošenja iste struje",
+        "Dobro izolovani stanovi u novogradnji, gde je potrebna snaga grejanja mala pa klima lako pokriva ceo prostor",
+      ]),
+      h2("Kada klima nije rešenje"),
+      p("U starijim niškim zgradama sa slabom izolacijom i starom stolarijom, gde toplota izlazi brže nego što jedan uređaj može da je isporuči, klima kao jedini izvor grejanja neće izdržati najhladnije nedelje. Isto važi za veće kuće gde bi bio potreban uređaj u svakoj prostoriji, jer klima greje samo prostor u kom se nalazi, a topao vazduh se ne raspoređuje kroz zatvorena vrata."),
+      p("I dalje ostaje pitanje najhladnijih dana. Kada u januaru padne na minus deset i ostane tu nekoliko dana, klima greje, ali skupo, i tada je bilo koji drugi izvor toplote razumniji izbor. Zato realno očekivanje nije zamena nego dopuna: klima nosi prelazne mesece i blage zimske dane, a osnovni sistem pokriva vrhunac sezone."),
+      h2("Šta gledati na uređaju ako planirate grejanje"),
+      p("Dva podatka su bitna. Prvi je SCOP, sezonski koeficijent grejanja, koji za razliku od COP-a uzima u obzir celu sezonu i realniji je pokazatelj. Drugi je deklarisana najniža spoljna temperatura na kojoj uređaj uopšte radi u režimu grejanja. Razlika među modelima je značajna: neki prestaju na minus deset, a modeli deklarisani za rad na niskim temperaturama funkcionišu i na minus dvadeset pet."),
+      p("Ako klimu kupujete prvenstveno zbog grejanja, taj drugi podatak je važniji od cene, jer uređaj koji stane baš kad vam najviše treba nije ušteda ni po kojoj računici."),
+      h2("Servis pred zimu nije isto što i servis pred leto"),
+      p("Kod grejanja se prljav isparivač i zapušena spoljna jedinica kažnjavaju dvostruko, jer smanjen protok vazduha direktno obara COP. Uređaj i dalje greje, ali sa manjim koeficijentom, što znači veći račun za istu toplotu. Ako klimu koristite i zimi, servis pred sezonu grejanja se isplati sam od sebe kroz manju potrošnju."),
+      p("Dodatno, kod grejanja spoljna jedinica ispušta kondenzat, jer se sada led i vlaga stvaraju napolju, a ne unutra. Ako jedinica stoji nisko na zidu ili blizu staze, vredi predvideti gde će ta voda oticati, da se zimi ne bi pravio led na mestu kojim se prolazi."),
+    ],
+    faq: [
+      {
+        question: "Do koje temperature se isplati grejati klimom u Nišu?",
+        answer:
+          "Otprilike do minus sedam stepeni. Iznad te granice COP je iznad dva, pa je kilovat-sat toplote iz klime jeftiniji od gasa. Ispod minus deset stepeni prednost praktično nestaje i razumnije je osloniti se na osnovni sistem grejanja.",
+      },
+      {
+        question: "Šta je COP i zašto se stalno menja?",
+        answer:
+          "COP je odnos isporučene toplote i utrošene struje. Menja se jer klima toplotu vadi iz spoljnog vazduha, pa je što je napolju hladnije potrebno više rada kompresora za istu isporučenu toplotu. Na 7 stepeni napolju COP je oko 4, oko nule oko 3, a na minus 7 oko 2.",
+      },
+      {
+        question: "Da li klima može da zameni toplanu?",
+        answer:
+          "Ako toplanu plaćate po kvadratu, ne može da vam smanji račun jer on ne zavisi od potrošnje. Ako plaćate po kalorimetru, može, i to primetno, posebno kada se greje jedna ili dve prostorije umesto celog stana.",
+      },
+      {
+        question: "Zašto klima zimi povremeno prestane da greje na par minuta?",
+        answer:
+          "To je ciklus odmrzavanja. Kada se na spoljnoj jedinici nakupi inje, uređaj privremeno preusmeri rad da bi ga otopio, pa se grejanje nakratko prekine. Pojava je normalna i najčešća je oko nule uz visoku vlažnost vazduha.",
+      },
+      {
+        question: "Da li svaka klima može da greje?",
+        answer:
+          "Skoro svaki uređaj prodat u poslednjih petnaest godina ima režim grejanja. Razlika je u tome do koje spoljne temperature radi i sa kojom efikasnošću. Ako grejanje planirate ozbiljno, proverite deklarisanu najnižu radnu temperaturu i SCOP vrednost.",
+      },
+      {
+        question: "Treba li poseban servis ako klimu koristim i zimi?",
+        answer:
+          "Da, i to pred sezonu grejanja, ne samo pred leto. Zaprljan isparivač i zapušena spoljna jedinica direktno obaraju COP, pa uređaj troši više struje za istu isporučenu toplotu.",
+      },
+    ],
+  },
+  {
+    slug: "kako-izracunati-snagu-klime-korak-po-korak",
+    title: "Kako izračunati pravu snagu klime za vašu prostoriju, korak po korak",
+    category: "izbor",
+    excerpt:
+      "Ne tabela nego metod: krenite od kvadrature, pa dodajte ili oduzmite procente za sunce, sprat, plafon i izolaciju. Tri primera iz niških stanova.",
+    summary:
+      "Potreban kapacitet klime se računa tako što se kvadratura pomnoži sa oko 400 BTU, a zatim se dobijeni broj koriguje naviše ili naniže prema orijentaciji prostorije, spratu, visini plafona i kvalitetu izolacije i stolarije. Dobijeni rezultat se zaokružuje na prvi veći raspoloživi kapacitet, nikad na dva stepena više.",
+    keyTakeaways: [
+      "Polazna računica je kvadratura puta 400 BTU za standardnu prostoriju",
+      "Južna i zapadna orijentacija sa direktnim suncem dodaje oko 20 posto",
+      "Poslednji sprat pod ravnim krovom dodaje još oko 15 posto",
+      "Stara stolarija i neizolovan zid dodaju 15 do 25 posto, nova fasada oduzima oko 10",
+      "Zaokružuje se na prvi veći kapacitet, a predimenzionisan uređaj je greška, ne rezerva",
+    ],
+    publishedAt: "2026-08-06",
+    body: [
+      p("Pitanje koji BTU mi treba dobijamo svakog dana, i skoro uvek se odgovori tabelom po kvadraturi. Tabela je koristan početak, ali dva stana od trideset kvadrata u Nišu mogu tražiti različite uređaje: jedan na severnoj strani u prizemlju zgrade sa fasadom, drugi na poslednjem spratu pod ravnim krovom sa zapadnom terasom. Zato je ovde umesto tabele dat metod, koji možete primeniti na svoju prostoriju za pet minuta."),
+      h2("Korak 1: polazna cifra"),
+      p("Izmerite kvadraturu prostorije koju hladite i pomnožite je sa 400. To je polazna vrednost u BTU jedinicama, za prostoriju standardne visine do 2,7 metra, prosečne izolacije i bez izraženog sunca."),
+      p("Primer: soba od 18 kvadrata daje 18 puta 400, dakle 7200 BTU kao polaznu cifru."),
+      p("Ako hladite otvoren prostor, dnevni boravak koji prelazi u trpezariju ili kuhinju bez vrata, računajte ukupnu kvadraturu celog tog prostora, ne samo dela u kom stoji uređaj. Vazduh ne poštuje granicu koju ste vi zamislili."),
+      h2("Korak 2: korekcije naviše"),
+      p("Na polaznu cifru dodajte procente za sve što važi za vašu prostoriju:"),
+      bullets([
+        "Južna ili zapadna orijentacija sa direktnim suncem veći deo dana: dodajte 20 posto",
+        "Poslednji sprat pod ravnim ili slabo izolovanim krovom: dodajte 15 posto",
+        "Potkrovlje sa kosim plafonom: dodajte 25 posto",
+        "Visina plafona preko 2,7 metra: dodajte 10 posto na svakih 30 centimetara preko toga",
+        "Stara drvena ili aluminijumska stolarija sa jednostrukim staklom: dodajte 20 posto",
+        "Neizolovan spoljni zid, tipično kod zgrada pre osamdesetih bez naknadne fasade: dodajte 15 posto",
+        "Velike staklene površine, francuski prozori ili zastakljena terasa uz prostoriju: dodajte 15 posto",
+        "Prostor otvoren ka kuhinji u kojoj se svakodnevno kuva: dodajte 10 posto",
+        "Više od dve osobe koje stalno borave u prostoriji: dodajte 600 BTU po osobi preko dve",
+      ]),
+      h2("Korak 3: korekcije naniže"),
+      p("Zatim oduzmite procente za sve što ide u vašu korist:"),
+      bullets([
+        "Severna ili istočna orijentacija, bez direktnog popodnevnog sunca: oduzmite 10 posto",
+        "Zgrada sa urađenom termoizolacionom fasadom: oduzmite 10 posto",
+        "Stan između dva grejana stana, dakle ni prizemlje ni poslednji sprat: oduzmite 5 posto",
+        "Nova PVC ili aluminijumska stolarija sa termoprekidom i dvostrukim staklom: oduzmite 10 posto",
+        "Prostorija sa spuštenim ili zasenčenim prozorima, roletnama ili tendom sa spoljne strane: oduzmite 10 posto",
+      ]),
+      p("Napomena o zasenčenju: spoljna zaštita od sunca, dakle roletna, tenda ili žaluzina sa spoljne strane stakla, značajno je efikasnija od unutrašnje zavese. Zavesa zaustavlja svetlo, ali toplota je već ušla kroz staklo u prostoriju."),
+      h2("Korak 4: zaokruživanje"),
+      p("Dobijeni broj zaokružite naviše na prvi raspoloživ kapacitet: 9000, 12000, 18000 ili 24000 BTU. Zaokružuje se uvek naviše, ali samo za jedan stepen. Ako vam je izračun 13000 BTU, uređaj je 18000 BTU, ne 24000."),
+      p("Ovo je najvažnije pravilo u celom tekstu, jer je predimenzionisanje najčešća greška koju viđamo. Prejak uređaj postigne zadatu temperaturu prebrzo i ugasi se pre nego što je stigao da izvuče vlagu iz vazduha. Prostorija je hladna ali sparna, a uređaj radi u kratkim ciklusima koji troše više struje i brže haba kompresor. Slabiji uređaj koji radi kontinuirano na sedamdeset posto snage bolje hladi, bolje suši vazduh, tiši je i duže traje."),
+      h2("Tri primera iz niških stanova"),
+      h3("Primer 1: spavaća soba 16 kvadrata, severna strana, treći sprat od pet"),
+      p("Polazna cifra: 16 puta 400 je 6400 BTU. Severna orijentacija oduzima 10 posto, dakle 5760. Stan između spratova oduzima još 5 posto, dakle 5470 BTU. Rezultat je znatno ispod najmanjeg raspoloživog uređaja, pa je izbor 9000 BTU, koji će u ovoj sobi raditi opušteno i tiho."),
+      h3("Primer 2: dnevni boravak 28 kvadrata, zapadna strana, poslednji sprat, stara stolarija"),
+      p("Polazna cifra: 28 puta 400 je 11200 BTU. Zapadna orijentacija sa popodnevnim suncem dodaje 20 posto, dakle 13440. Poslednji sprat dodaje 15 posto, dakle 15456. Stara stolarija dodaje 20 posto, dakle 18547 BTU. Izbor je 18000 BTU, i to na gornjoj granici, pa vredi razmotriti zamenu stolarije ili spoljnu zaštitu od sunca pre nego što se ide na 24000 BTU."),
+      h3("Primer 3: otvoren prostor 40 kvadrata, dnevni boravak i kuhinja, izolovana zgrada"),
+      p("Polazna cifra: 40 puta 400 je 16000 BTU. Zapadna orijentacija dodaje 20 posto, dakle 19200. Otvorena kuhinja dodaje 10 posto, dakle 21120. Urađena fasada oduzima 10 posto, dakle 19008 BTU. Formalno to znači 24000 BTU, ali u ovakvom prostoru često je bolje rešenje dva manja uređaja ili multi split sistem, jer jedan jak uređaj neće ravnomerno pokriti prostor koji se pruža u dva pravca."),
+      h2("Šta metod ne može da izračuna"),
+      p("Ova računica daje dobar okvir, ali dve stvari se ne vide iz brojeva. Prva je stvarna raspodela vazduha: uređaj koji duva direktno u zid ili u nameštaj ne isporučuje deklarisani kapacitet, koliko god da je jak. Druga je pozicija spoljne jedinice: jedinica koja ceo dan stoji na južnoj fasadi pod direktnim suncem radi u težim uslovima od iste jedinice u hladu, i to se vidi i na učinku i na potrošnji."),
+      p("Zato je izračun početak razgovora, ne kraj. Kada dođemo na uvid, proveravamo i gde uređaj može da stane, kuda vazduh može da ide i gde spoljna jedinica najmanje pati, i tek onda potvrđujemo kapacitet."),
+      h2("Niška specifičnost"),
+      p("Niš spada u toplije delove Srbije, sa letnjim danima koji redovno prelaze 35 stepeni i sa kotlinom koja toplotu zadržava i posle zalaska sunca. To u praksi znači da uređaj u Nišu ređe radi u lakim uslovima nego isti uređaj na severu zemlje, i da je granica između dva kapaciteta osetljivija. Ako vaš izračun padne tik ispod praga za jači uređaj, a prostorija je na jugu ili zapadu, jači uređaj je po pravilu bezbedniji izbor."),
+      h2("Gde dalje"),
+      p("Kada znate kapacitet, ostaje izbor modela. Uređaje smo grupisali po kapacitetu da biste videli sve opcije u svojoj kategoriji na jednom mestu:"),
+      bullets([
+        "9000 BTU za sobe do oko 20 kvadrata: /shop/kapacitet/9000-btu",
+        "12000 BTU za prostorije od 20 do 28 kvadrata: /shop/kapacitet/12000-btu",
+        "18000 BTU za veće dnevne boravke od 28 do 35 kvadrata: /shop/kapacitet/18000-btu",
+        "24000 BTU za velike i otvorene prostore: /shop/kapacitet/24000-btu",
+      ]),
+      p("U svakoj kategoriji postoje modeli različitih klasa i cena, ali kapacitet je odluka koja se donosi prva, jer se pogrešan kapacitet ne može popraviti ni najboljim modelom."),
+    ],
+    faq: [
+      {
+        question: "Koliko BTU treba za sobu od 20 kvadrata?",
+        answer:
+          "Polazna računica daje 8000 BTU, što znači uređaj od 9000 BTU. Ako je soba na jugu ili zapadu, na poslednjem spratu ili sa starom stolarijom, izračun lako pređe 10500 BTU i tada je pravi izbor 12000 BTU.",
+      },
+      {
+        question: "Da li je bolje uzeti jači uređaj za svaki slučaj?",
+        answer:
+          "Ne. Predimenzionisan uređaj postiže temperaturu prebrzo i gasi se pre nego što izvuče vlagu iz vazduha, pa je prostorija hladna ali sparna. Uz to radi u kratkim ciklusima koji troše više struje i brže habaju kompresor.",
+      },
+      {
+        question: "Kako da računam kapacitet za otvoren prostor sa kuhinjom?",
+        answer:
+          "Saberite kvadraturu celog povezanog prostora, ne samo dela u kom će stajati uređaj, pa dodajte oko 10 posto zbog toplote od kuvanja. Kod prostora preko 35 kvadrata koji se pruža u dva pravca često je bolje rešenje multi split nego jedan jak uređaj.",
+      },
+      {
+        question: "Da li visina plafona zaista utiče na izbor?",
+        answer:
+          "Utiče, jer se hladi zapremina vazduha, ne površina poda. Za svakih 30 centimetara preko standardnih 2,7 metra dodajte oko 10 posto na izračun. Kod potkrovlja sa kosim plafonom računajte odmah 25 posto više.",
+      },
+      {
+        question: "Koliko utiče izolacija fasade?",
+        answer:
+          "Zgrada sa urađenom termoizolacionom fasadom traži oko 10 posto manji kapacitet od iste zgrade bez nje. Kod neizolovanog zida, tipično u gradnji pre osamdesetih, ide se 15 posto naviše.",
+      },
+      {
+        question: "Da li mogu sam da odlučim ili je potreban izlazak na teren?",
+        answer:
+          "Ovaj metod vam daje pouzdan okvir i u većini slučajeva pogodićete pravi kapacitet. Izlazak je koristan kada je izračun blizu granice između dva kapaciteta, kod otvorenih prostora i kod potkrovlja, jer tu i raspodela vazduha i pozicija spoljne jedinice utiču na konačan izbor.",
+      },
+    ],
+  },
 ];
 
 export type ServicePageItem = {
