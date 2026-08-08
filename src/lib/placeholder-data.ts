@@ -965,6 +965,7 @@ export const blogPosts: BlogPostItem[] = [
       "Zaokružuje se na prvi veći kapacitet, a predimenzionisan uređaj je greška, ne rezerva",
     ],
     publishedAt: "2026-08-06",
+    coverImageUrl: "/images/blog/kako-izracunati-snagu-klime-korak-po-korak.webp",
     body: [
       p("Pitanje koji BTU mi treba dobijamo svakog dana, i skoro uvek se odgovori tabelom po kvadraturi. Tabela je koristan početak, ali dva stana od trideset kvadrata u Nišu mogu tražiti različite uređaje: jedan na severnoj strani u prizemlju zgrade sa fasadom, drugi na poslednjem spratu pod ravnim krovom sa zapadnom terasom. Zato je ovde umesto tabele dat metod, koji možete primeniti na svoju prostoriju za pet minuta."),
       h2("Korak 1: polazna cifra"),

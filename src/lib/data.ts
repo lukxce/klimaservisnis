@@ -185,7 +185,7 @@ function mapBlogPost(raw: any): BlogPost {
     keyTakeaways: raw.keyTakeaways,
     publishedAt: raw.publishedAt,
     author: raw.author,
-    coverImageUrl: imgUrl(raw.coverImage),
+    coverImageUrl: raw.coverImageUrl ?? imgUrl(raw.coverImage),
     body: isPlainBody ? undefined : raw.body,
     bodyPlain: isPlainBody ? raw.body : undefined,
     faq: raw.faq,
