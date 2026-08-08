@@ -22,6 +22,17 @@ function bullets(items: string[]) {
     children: [{ _type: "span", text }],
   }));
 }
+// Bullet čiji je ceo tekst klikabilan link (npr. ka kategoriji u shopu).
+function bulletLink(text: string, href: string, key: string) {
+  return {
+    _type: "block",
+    style: "normal",
+    listItem: "bullet" as const,
+    level: 1,
+    markDefs: [{ _key: key, _type: "link", href }],
+    children: [{ _type: "span", text, marks: [key] }],
+  };
+}
 
 export const siteSettings = {
   title: "Servis Klime Niš",
@@ -1000,12 +1011,10 @@ export const blogPosts: BlogPostItem[] = [
       p("Niš spada u toplije delove Srbije, sa letnjim danima koji redovno prelaze 35 stepeni i sa kotlinom koja toplotu zadržava i posle zalaska sunca. To u praksi znači da uređaj u Nišu ređe radi u lakim uslovima nego isti uređaj na severu zemlje, i da je granica između dva kapaciteta osetljivija. Ako vaš izračun padne tik ispod praga za jači uređaj, a prostorija je na jugu ili zapadu, jači uređaj je po pravilu bezbedniji izbor."),
       h2("Gde dalje"),
       p("Kada znate kapacitet, ostaje izbor modela. Uređaje smo grupisali po kapacitetu da biste videli sve opcije u svojoj kategoriji na jednom mestu:"),
-      bullets([
-        "9000 BTU za sobe do oko 20 kvadrata: /shop/kapacitet/9000-btu",
-        "12000 BTU za prostorije od 20 do 28 kvadrata: /shop/kapacitet/12000-btu",
-        "18000 BTU za veće dnevne boravke od 28 do 35 kvadrata: /shop/kapacitet/18000-btu",
-        "24000 BTU za velike i otvorene prostore: /shop/kapacitet/24000-btu",
-      ]),
+      bulletLink("9000 BTU za sobe do oko 20 kvadrata", "/shop/kapacitet/9000-btu", "cap9000"),
+      bulletLink("12000 BTU za prostorije od 20 do 28 kvadrata", "/shop/kapacitet/12000-btu", "cap12000"),
+      bulletLink("18000 BTU za veće dnevne boravke od 28 do 35 kvadrata", "/shop/kapacitet/18000-btu", "cap18000"),
+      bulletLink("24000 BTU za velike i otvorene prostore", "/shop/kapacitet/24000-btu", "cap24000"),
       p("U svakoj kategoriji postoje modeli različitih klasa i cena, ali kapacitet je odluka koja se donosi prva, jer se pogrešan kapacitet ne može popraviti ni najboljim modelom."),
     ],
     faq: [
