@@ -864,6 +864,7 @@ export const blogPosts: BlogPostItem[] = [
       "Klima nije samo za hlađenje, ali ni zamena za grejanje u najhladnijim nedeljama",
     ],
     publishedAt: "2026-08-05",
+    coverImageUrl: "/images/blog/klima-za-grejanje-zimi-u-nisu-racunica.webp",
     body: [
       p("Najveća zabluda o klima uređajima u Nišu je da su to mašine za leto koje zimi stoje. Skoro svaki uređaj koji smo ugradili u poslednjih deset godina radi i u režimu grejanja, i veliki deo klijenata to jednostavno ne koristi. Ovaj tekst se bavi konkretnim brojevima: koliko klima košta po kilovat-satu toplote na različitim spoljnim temperaturama, i kako to stoji u odnosu na toplanu i gas u Nišu."),
       h2("Zašto klima uopšte može da bude jeftinija od grejalice"),
