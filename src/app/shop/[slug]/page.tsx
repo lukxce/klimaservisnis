@@ -70,9 +70,15 @@ export default async function ProductDetailPage(
     ],
   };
 
-  const priceValidUntil = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000)
-    .toISOString()
-    .split("T")[0];
+  // Zaokruženo na 1. u mesecu (~4 meseca unapred) umesto na tačan dan.
+  // Date.now() bi menjao ovu vrednost svaki dan (kad "danas + 90 dana"
+  // pređe u novi datum), a Vercel računa ISR write svaki put kad se
+  // izlaz stranice promeni od prethodne verzije - mesečna granularnost
+  // umesto dnevne je 30x manje nepotrebnih write-ova, bez ikakve razlike
+  // za schema.org svrhu (samo treba da bude "dovoljno daleko u budućnosti").
+  const priceValidUntilDate = new Date();
+  priceValidUntilDate.setUTCMonth(priceValidUntilDate.getUTCMonth() + 4, 1);
+  const priceValidUntil = priceValidUntilDate.toISOString().split("T")[0];
 
   const productJsonLd = {
     "@context": "https://schema.org",
