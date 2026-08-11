@@ -33,6 +33,20 @@ function bulletLink(text: string, href: string, key: string) {
     children: [{ _type: "span", text, marks: [key] }],
   };
 }
+// Običan paragraf sa jednim ugrađenim linkom negde u sredini teksta
+// (npr. ka stranici usluge ili cenovniku).
+function pLink(before: string, linkText: string, after: string, href: string, key: string) {
+  return {
+    _type: "block",
+    style: "normal",
+    markDefs: [{ _key: key, _type: "link", href }],
+    children: [
+      { _type: "span", text: before },
+      { _type: "span", text: linkText, marks: [key] },
+      { _type: "span", text: after },
+    ],
+  };
+}
 
 export const siteSettings = {
   title: "Servis Klime Niš",
@@ -1049,6 +1063,105 @@ export const blogPosts: BlogPostItem[] = [
         question: "Da li mogu sam da odlučim ili je potreban izlazak na teren?",
         answer:
           "Ovaj metod vam daje pouzdan okvir i u većini slučajeva pogodićete pravi kapacitet. Izlazak je koristan kada je izračun blizu granice između dva kapaciteta, kod otvorenih prostora i kod potkrovlja, jer tu i raspodela vazduha i pozicija spoljne jedinice utiču na konačan izbor.",
+      },
+    ],
+  },
+  {
+    slug: "kada-je-pravo-vreme-za-godisnji-servis-klime",
+    title: "Kada je pravo vreme za godišnji servis klime u Nišu",
+    category: "servis",
+    excerpt:
+      "Mart i april su prozor kada serviseri u Nišu imaju slobodne termine, a ne jun i jul. Evo šta tehničar proverava na godišnjem servisu i zašto kasno zakazivanje znači ili čekanje u redu, ili rad na prljavom uređaju cele sezone.",
+    summary:
+      "Godišnji servis klime u Nišu najbolje je zakazati u martu ili aprilu, pre nego što počne sezona vrućina. Tada serviseri imaju slobodne termine, a uređaj ulazi u leto očišćen i podešen. Ko sačeka jun ili jul, po pravilu čeka na red nedeljama i celo najtoplije doba godine hladi preko zaprljanog filtera i isparivača.",
+    keyTakeaways: [
+      "Najbolji period za godišnji servis u Nišu je mart i april, pre početka sezone vrućina",
+      "U junu i julu su termini kod servisera popunjeni i po nedelju do dve unapred",
+      "Godišnji servis obuhvata filtere, isparivač i turbinu, pritisak gasa, odvod kondenzata, električne priključke i opštu dijagnostiku",
+      "Klima koja uđe u leto neočišćena troši i do petinu više struje za isto hlađenje",
+      "Zakazivanje van sezone je i jeftinije po vremenu čekanja, jer se termin dobija za dan-dva, ne za dve nedelje",
+    ],
+    publishedAt: "2026-08-11",
+    body: [
+      p("Svakog juna dobijamo isti poziv: klima ne hladi kako treba, u prostoriji se oseća neprijatan miris čim se uređaj uključi, a čovek na drugoj strani žice pita može li serviser da dođe sutra. Realan odgovor je najčešće da može, ali za sedam do deset dana, jer su svi termini između sada i tada već zakazani. Ovaj tekst objašnjava zašto se to dešava svake godine, koji je stvarno najbolji period da zakažete godišnji servis i šta tehničar konkretno radi kad dođe kod vas."),
+
+      h2("Zašto mart i april, a ne jun"),
+      p("Logika je jednostavna i uglavnom je pitanje ponude i potražnje. Čim temperature u Nišu pređu tridesetak stepeni, svako ko je odlagao servis pokušava da zakaže istog dana, i to se dešava masovno, u istoj nedelji, u celom gradu, od Medijane do Pantaleja i Crvenog Krsta. Serviserske ekipe u tom periodu rade od jutra do mraka i fizički ne mogu da stignu svuda odmah."),
+      p("U martu i aprilu je potpuno drugačija slika. Vreme je još uvek prohladno, klima nikome nije hitna potreba, i upravo zato je to period kada se termin dobija za dan ili dva, tehničar ima vremena da odradi posao bez žurbe, a vi imate uređaj spreman i proveren mesecima pre nego što vam stvarno zatreba. Ako klimu koristite i za grejanje tokom zime, ovaj period je dodatno pogodan jer je sezona grejanja upravo završena, pa se odmah vidi da li je nešto trebalo popraviti pre nego što uređaj miruje do leta."),
+      p("Postoji i praktičan razlog vezan za sam uređaj. Klima koja je stajala ugašena tokom zime nakupi vlagu i prašinu u mirovanju, čak i kad se ne koristi. Prvo uključivanje u maju ili junu bez prethodnog servisa često je i prvi put da se ta nakupljena prljavština raznese po prostoriji, otuda i onaj karakterističan ustajali miris koji se javlja baš pri prvom paljenju posle zime."),
+
+      h2("Šta se stvarno dešava ako sačekate jul"),
+      p("Dve stvari, i obe koštaju. Prva je čekanje. U jeku sezone, ozbiljna serviserska firma u Nišu ima zakazane termine unapred, i realno je čekati sedam do četrnaest dana od poziva do dolaska tehničara, ponekad i duže ako je leto posebno vruće i pozivi stižu masovno. Druga stvar je da tih dana i nedelja čekanja niste bez klime, već je koristite dalje, samo u lošijem stanju nego što bi trebalo."),
+      p("Zaprljan filter i isparivač smanjuju protok vazduha, pa kompresor mora duže da radi da bi ohladio istu prostoriju na istu temperaturu. To direktno podiže potrošnju struje, često i do petnaest do dvadeset posto u odnosu na servisiran uređaj, baš u mesecima kada je račun za struju već najveći zbog dužeg rada klime. Drugim rečima, ko sačeka jul ne samo da čeka duže na termin, nego celo to vreme i posle njega plaća više za lošiji rezultat."),
+      p("Treći, manje očigledan trošak je habanje. Kompresor koji radi pod većim opterećenjem zbog smanjenog protoka vazduha troši se brže, a to je pojedinačno najskuplji deo uređaja za zamenu. Jedna propuštena sezona servisa retko će sama po sebi uništiti kompresor, ali kombinacija više propuštenih sezona zaredom je čest uzrok skupih popravki koje smo viđali kod klijenata koji su godinama odlagali."),
+
+      h2("Šta tehničar zapravo proverava na godišnjem servisu"),
+      p("Godišnji, mali servis nije samo brisanje filtera, iako je to deo koji se najlakše vidi. Kompletan pregled obuhvata nekoliko koraka koje vredi znati, i kao orijentir šta da očekujete, i kao osnovu da procenite da li vam je neko odradio pravi posao ili samo prošao pored uređaja."),
+      h3("Filteri"),
+      p("Vade se, peru mlakom vodom ili čiste usisivačem, i suše pre vraćanja. Ovo je najosnovniji korak, ali i onaj koji najviše utiče na protok vazduha, pa se od njega i kreće."),
+      h3("Isparivač i turbina (ventilator)"),
+      p("Isparivač unutrašnje jedinice se pregleda i čisti od naslaga prašine i masnih čestica koje filter nije uhvatio. Turbina, odnosno ventilator koji gura vazduh kroz prostoriju, takođe se pregleda, jer se na njenim lopaticama vremenom hvata prljavština koja smanjuje protok i pravi neravnotežu, što se čuje kao pojačana buka pri radu."),
+      h3("Pritisak rashladnog gasa"),
+      p("Tehničar proverava da li je pritisak gasa u sistemu u granicama koje propisuje proizvođač. Prenizak pritisak najčešće znači sitno curenje negde u instalaciji, i bolje je to otkriti u martu, uz mirnu dopunu i proveru zaptivenosti, nego u julu kad uređaj naglo prestane da hladi u najgorem mogućem trenutku."),
+      h3("Odvod kondenzata"),
+      p("Crevo kroz koje voda otiče iz unutrašnje jedinice proverava se na zapušenje algama ili prašinom. Ovo je čest, a lako izbežan uzrok curenja vode niz zid ili kapanja sa unutrašnje jedinice, i skoro uvek se rešava jednostavnim produvavanjem u sklopu redovnog servisa."),
+      h3("Električni priključci"),
+      p("Kontakti i priključci na unutrašnjoj i spoljašnjoj jedinici se vizuelno pregledaju zbog labavih spojeva, korozije ili tragova pregrevanja, posebno kod starijih uređaja ili onih koji su montirani napolju izloženi vremenskim uslovima."),
+      h3("Opšta dijagnostika rada"),
+      p("Na kraju se uređaj pusti u rad i prati se nekoliko minuta, da se proveri da li hladi ravnomerno, da li kompresor kreće i staje kako treba i da li postoji neuobičajen zvuk ili vibracija koja bi ukazivala na problem koji vizuelnim pregledom nije uočen."),
+
+      h2("Mali servis ili vam treba veliki"),
+      pLink(
+        "Za uređaj koji radi u normalnim, stambenim uslovima i koji je prošle sezone imao redovan servis, mali godišnji servis je dovoljan. Ako je prošlo dve do tri godine bez ozbiljnijeg čišćenja, ili ako i posle malog servisa ostaje neprijatan miris, slabije hlađenje ili curenje vode, vreme je za veliki servis, koji uključuje rasklapanje jedinice i dubinsko pranje isparivača i turbine pod pritiskom. Sve varijante servisa, uključujući i veliki, možete pogledati na stranici za ",
+        "usluge servisiranja klima uređaja",
+        ", gde piše i šta tačno svaka varijanta obuhvata.",
+        "/usluge/servis",
+        "svcLinkGodisnji",
+      ),
+
+      h2("Koliko servis košta i gde proveriti cenu"),
+      pLink(
+        "Cena godišnjeg servisa zavisi pre svega od kapaciteta uređaja, manje jedinice od 9 i 12 BTU koštaju nešto manje od servisa za 18 i 24 BTU uređaje, a veliki servis je uvek skuplji od malog jer traje duže i zahteva rasklapanje. Tačan i ažuran cenovnik za sve kombinacije možete videti na stranici ",
+        "cenovnika usluga",
+        ", tako da unapred znate na šta da računate pre nego što tehničar dođe na teren.",
+        "/cenovnik",
+        "priceLinkGodisnji",
+      ),
+
+      h2("Praktičan kalendar za Niš"),
+      p("Ako biste hteli jednu rečenicu za pamćenje, ona bi glasila ovako: zakažite servis onog dana kada vam prvi put padne na pamet da bi klima trebalo da se proveri, umesto da čekate da vam stvarno zatreba. U niškim uslovima, sa vrelim i suvim letima, to praktično znači mart ili april za svakoga ko klimu koristi samo za hlađenje, i dodatnu proveru u oktobru za one koji je koriste i za grejanje. Ekipe koje pokrivaju centar, Nišku Banju, Palilulu i ostale delove grada imaju najviše slobode u rasporedu upravo u tom prolećnom periodu, pre nego što prve julske vrućine pretvore svaki poziv u hitan slučaj."),
+      p("Ono što na kraju ostaje je jednostavan izbor: servis u martu po mirnom terminu i uz uređaj koji ulazi u leto spreman, ili servis u julu posle nedelju i po dana čekanja i posle sezone rada na prljavom uređaju. Cena rada tehničara je ista u oba slučaja, razlika je samo u tome koliko dugo ćete čekati i koliko će vas u međuvremenu koštati struja."),
+    ],
+    faq: [
+      {
+        question: "Kada tačno treba zakazati godišnji servis klime u Nišu?",
+        answer:
+          "Idealno u martu ili aprilu, pre početka sezone vrućina. Tada su termini kod servisera slobodni, a uređaj ulazi u leto već proveren i očišćen. Ako klimu koristite i za grejanje, dobro je dodati kratku proveru i u oktobru.",
+      },
+      {
+        question: "Zašto je teško dobiti termin za servis u julu?",
+        answer:
+          "Zato što veliki broj ljudi zakazuje servis tek kad im uređaj počne loše da radi, a to se dešava masovno čim nastupe prve vrućine. Serviserske ekipe u tom periodu imaju pune rasporede i realno vreme čekanja je sedam do četrnaest dana.",
+      },
+      {
+        question: "Šta konkretno tehničar radi na godišnjem servisu?",
+        answer:
+          "Vadi i pere filtere, pregleda i čisti isparivač i turbinu, proverava pritisak rashladnog gasa, proverava i čisti odvod kondenzata, pregleda električne priključke i na kraju pušta uređaj u rad da proveri da li sve funkcioniše kako treba.",
+      },
+      {
+        question: "Koliko klima gubi na efikasnosti ako se ne servisira redovno?",
+        answer:
+          "U praksi i do petnaest do dvadeset posto veća potrošnja struje za isto hlađenje, jer zaprljan filter i isparivač smanjuju protok vazduha, pa kompresor mora duže da radi da bi postigao istu temperaturu.",
+      },
+      {
+        question: "Da li mi treba mali ili veliki servis?",
+        answer:
+          "Ako je prošle sezone urađen redovan servis i uređaj radi normalno, dovoljan je mali, godišnji servis. Ako je prošlo dve do tri godine bez čišćenja, ili ostaje neprijatan miris i slabije hlađenje i posle malog servisa, vreme je za veliki servis sa rasklapanjem i dubinskim pranjem isparivača i turbine.",
+      },
+      {
+        question: "Da li servis pred sezonu košta više nego servis u jeku leta?",
+        answer:
+          "Ne, cena zavisi od kapaciteta uređaja i vrste servisa, ne od doba godine. Razlika je jedino u tome koliko čekate na termin, u martu i aprilu obično dan ili dva, u jeku leta i po dve nedelje.",
       },
     ],
   },
