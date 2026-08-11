@@ -1081,6 +1081,7 @@ export const blogPosts: BlogPostItem[] = [
       "Klima koja uđe u leto neočišćena troši i do petinu više struje za isto hlađenje",
       "Zakazivanje van sezone je i jeftinije po vremenu čekanja, jer se termin dobija za dan-dva, ne za dve nedelje",
     ],
+    coverImageUrl: "/images/blog/kada-je-pravo-vreme-za-godisnji-servis-klime.webp",
     publishedAt: "2026-08-11",
     body: [
       p("Svakog juna dobijamo isti poziv: klima ne hladi kako treba, u prostoriji se oseća neprijatan miris čim se uređaj uključi, a čovek na drugoj strani žice pita može li serviser da dođe sutra. Realan odgovor je najčešće da može, ali za sedam do deset dana, jer su svi termini između sada i tada već zakazani. Ovaj tekst objašnjava zašto se to dešava svake godine, koji je stvarno najbolji period da zakažete godišnji servis i šta tehničar konkretno radi kad dođe kod vas."),
