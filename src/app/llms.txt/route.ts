@@ -6,7 +6,11 @@ import {
 } from "@/lib/data";
 import { SITE_URL } from "@/lib/site-config";
 
-export const revalidate = 60;
+// Route Handlers default to fully dynamic (server-rendered every request)
+// since Next 15 unless revalidate is set explicitly. `false` keeps this
+// static+ISR, refreshed on-demand via the Sanity webhook (/api/revalidate)
+// instead of a fixed timer.
+export const revalidate = false;
 
 export async function GET() {
   const [settings, servicePages, products, posts] = await Promise.all([

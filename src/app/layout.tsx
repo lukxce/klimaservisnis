@@ -10,9 +10,15 @@ import { JsonLd } from "@/components/JsonLd";
 import { getSiteSettings } from "@/lib/data";
 import { SITE_URL } from "@/lib/site-config";
 
-// Content lives in Sanity now — without this, every static page is frozen
-// at build time and Studio edits never show up without a full redeploy.
-export const revalidate = 60;
+// Content lives in Sanity, but instead of a fixed 60s timer (which forced
+// every route on the site to regenerate every minute regardless of whether
+// anything changed - the main source of Vercel ISR write usage) this is now
+// on-demand: getSiteSettings() and friends tag their fetches by document
+// type, and /api/revalidate calls revalidateTag() when a Sanity webhook
+// fires on publish. `false` keeps routes static until a tag invalidates
+// them, instead of "static forever" (the actual default with no revalidate
+// export at all) or "always dynamic".
+export const revalidate = false;
 
 // Self-hosted Geist via the official `geist` package (next/font/local under
 // the hood) instead of next/font/google. The Google CDN splits Geist into

@@ -36,7 +36,7 @@ function imgUrl(image: SanityImage): string | undefined {
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   if (!cmsConfigured) return placeholderSettings;
-  const data = await client.fetch(siteSettingsQuery);
+  const data = await client.fetch(siteSettingsQuery, {}, { next: { tags: ["siteSettings"] } });
   if (!data) return placeholderSettings;
   return {
     title: data.title ?? placeholderSettings.title,
@@ -79,7 +79,7 @@ function mapService(raw: any): Service {
 
 export async function getServices(): Promise<Service[]> {
   if (!cmsConfigured) return placeholderServices.map(mapService);
-  const data = await client.fetch(servicesQuery);
+  const data = await client.fetch(servicesQuery, {}, { next: { tags: ["service"] } });
   if (!data?.length) return placeholderServices.map(mapService);
   return data.map(mapService);
 }
@@ -89,7 +89,7 @@ export async function getServiceBySlug(slug: string): Promise<Service | null> {
     const found = placeholderServices.find((s) => s.slug === slug);
     return found ? mapService(found) : null;
   }
-  const data = await client.fetch(serviceBySlugQuery, { slug });
+  const data = await client.fetch(serviceBySlugQuery, { slug }, { next: { tags: ["service"] } });
   return data ? mapService(data) : null;
 }
 
@@ -112,7 +112,7 @@ function mapServicePage(raw: any): ServicePage {
 
 export async function getServicePages(): Promise<ServicePage[]> {
   if (!cmsConfigured) return placeholderServicePages.map(mapServicePage);
-  const data = await client.fetch(servicePagesQuery);
+  const data = await client.fetch(servicePagesQuery, {}, { next: { tags: ["servicePage"] } });
   if (!data?.length) return placeholderServicePages.map(mapServicePage);
   return data.map(mapServicePage);
 }
@@ -122,7 +122,7 @@ export async function getServicePageBySlug(slug: string): Promise<ServicePage | 
     const found = placeholderServicePages.find((p) => p.slug === slug);
     return found ? mapServicePage(found) : null;
   }
-  const data = await client.fetch(servicePageBySlugQuery, { slug });
+  const data = await client.fetch(servicePageBySlugQuery, { slug }, { next: { tags: ["servicePage"] } });
   return data ? mapServicePage(data) : null;
 }
 
@@ -150,7 +150,7 @@ function mapProduct(raw: any): Product {
 
 export async function getProducts(): Promise<Product[]> {
   if (!cmsConfigured) return placeholderProducts.map(mapProduct);
-  const data = await client.fetch(productsQuery);
+  const data = await client.fetch(productsQuery, {}, { next: { tags: ["product"] } });
   if (!data?.length) return placeholderProducts.map(mapProduct);
   return data.map(mapProduct);
 }
@@ -158,7 +158,7 @@ export async function getProducts(): Promise<Product[]> {
 export async function getFeaturedProducts(): Promise<Product[]> {
   if (!cmsConfigured)
     return placeholderProducts.filter((p) => p.featured).map(mapProduct);
-  const data = await client.fetch(featuredProductsQuery);
+  const data = await client.fetch(featuredProductsQuery, {}, { next: { tags: ["product"] } });
   if (!data?.length)
     return placeholderProducts.filter((p) => p.featured).map(mapProduct);
   return data.map(mapProduct);
@@ -169,7 +169,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     const found = placeholderProducts.find((p) => p.slug === slug);
     return found ? mapProduct(found) : null;
   }
-  const data = await client.fetch(productBySlugQuery, { slug });
+  const data = await client.fetch(productBySlugQuery, { slug }, { next: { tags: ["product"] } });
   return data ? mapProduct(data) : null;
 }
 
@@ -195,7 +195,7 @@ function mapBlogPost(raw: any): BlogPost {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   if (!cmsConfigured) return placeholderBlogPosts.map(mapBlogPost);
-  const data = await client.fetch(blogPostsQuery);
+  const data = await client.fetch(blogPostsQuery, {}, { next: { tags: ["blogPost"] } });
   if (!data?.length) return placeholderBlogPosts.map(mapBlogPost);
   return data.map(mapBlogPost);
 }
@@ -205,6 +205,6 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     const found = placeholderBlogPosts.find((p) => p.slug === slug);
     return found ? mapBlogPost(found) : null;
   }
-  const data = await client.fetch(blogPostBySlugQuery, { slug });
+  const data = await client.fetch(blogPostBySlugQuery, { slug }, { next: { tags: ["blogPost"] } });
   return data ? mapBlogPost(data) : null;
 }
