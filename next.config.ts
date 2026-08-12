@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
     // the default for hero/large images.
     qualities: [60, 75],
   },
+  headers: async () => [
+    {
+      // Prevent the *.vercel.app preview URL from being indexed by search
+      // engines, which would split ranking signal with the canonical domain.
+      source: "/:path*",
+      has: [{ type: "host", value: "klimaservisnis.vercel.app" }],
+      headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+    },
+  ],
   experimental: {
     inlineCss: true,
   },
