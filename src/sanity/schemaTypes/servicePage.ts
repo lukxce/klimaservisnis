@@ -23,6 +23,12 @@ export const servicePage = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'heroTitle',
+      title: 'H1 naslov (sa gradom)',
+      type: 'string',
+      description: 'Naslov za H1 na stranici, sa gradom, npr. "Montaža klime u Nišu". Ako je prazno, koristi se obični naslov.',
+    }),
+    defineField({
       name: 'heroSubtitle',
       title: 'Podnaslov (hero)',
       type: 'text',

@@ -75,9 +75,13 @@ export default async function UslugaDetailPage(
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: page.title,
+    serviceType: page.heroTitle ?? page.title,
     provider: { "@type": "HVACBusiness", name: settings.title, telephone: settings.phone },
-    areaServed: settings.city,
+    areaServed: {
+      "@type": "City",
+      name: settings.city,
+      geo: { "@type": "GeoCoordinates", latitude: 43.3209, longitude: 21.8958 },
+    },
     description: page.heroSubtitle,
   };
 
@@ -101,7 +105,7 @@ export default async function UslugaDetailPage(
 
       <PageHero
         eyebrow="Usluge"
-        title={page.title}
+        title={page.heroTitle ?? page.title}
         subtitle={page.heroSubtitle}
         primaryCta={{ label: `Pozovite ${settings.phone}`, href: `tel:${settings.phone.replace(/\s/g, "")}` }}
         secondaryCta={{ label: "Prijavite kvar", href: "/kontakt" }}
