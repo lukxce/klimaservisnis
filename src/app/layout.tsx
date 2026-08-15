@@ -33,7 +33,7 @@ const geistMono = GeistMono;
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
-  const title = `${settings.title} | ${settings.tagline}`;
+  const title = `${settings.title} | ${settings.phone}`;
 
   return {
     metadataBase: new URL(SITE_URL),
