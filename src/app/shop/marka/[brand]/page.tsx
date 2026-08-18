@@ -30,7 +30,8 @@ export async function generateMetadata(
     title,
     description,
     alternates: { canonical: `/shop/marka/${hub.slug}` },
-    openGraph: { title, description, type: "website", url: `${SITE_URL}/shop/marka/${hub.slug}` },
+    openGraph: {
+      images: [`${SITE_URL}/opengraph-image`], title, description, type: "website", url: `${SITE_URL}/shop/marka/${hub.slug}` },
   };
 }
 

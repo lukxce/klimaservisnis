@@ -35,6 +35,7 @@ export async function generateMetadata(
     description,
     alternates: { canonical: `/shop/kapacitet/${capacitySlug(hub.btu)}` },
     openGraph: {
+      images: [`${SITE_URL}/opengraph-image`],
       title,
       description,
       type: "website",

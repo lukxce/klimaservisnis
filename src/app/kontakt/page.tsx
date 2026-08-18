@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     alternates: { canonical: "/kontakt" },
     openGraph: {
+      images: [`${SITE_URL}/opengraph-image`],
       title: `${title} | ${settings.title}`,
       description,
       type: "website",

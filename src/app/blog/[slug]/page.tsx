@@ -38,6 +38,7 @@ export async function generateMetadata(
     description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
+      images: post.coverImageUrl ? [post.coverImageUrl] : [`${SITE_URL}/opengraph-image`],
       title,
       description,
       type: "article",
@@ -78,7 +79,11 @@ export default async function BlogPostPage(
     dateModified: post.publishedAt,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
     author: { "@type": "Organization", name: post.author ?? settings.title },
-    publisher: { "@type": "Organization", name: settings.title },
+    publisher: {
+      "@type": "Organization",
+      name: settings.title,
+      logo: { "@type": "ImageObject", "url": `${SITE_URL}/opengraph-image` },
+    },
   };
 
   const faqJsonLd =
