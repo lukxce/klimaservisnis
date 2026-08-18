@@ -77,7 +77,7 @@ export default async function UslugaDetailPage(
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: page.heroTitle ?? page.title,
-    provider: { "@type": "HVACBusiness", name: settings.title, telephone: settings.phone },
+    provider: { "@type": "HVACBusiness", name: settings.title, telephone: settings.phone, address: settings.address ? { "@type": "PostalAddress", streetAddress: settings.address, addressLocality: settings.city, addressCountry: "RS" } : undefined, },
     areaServed: {
       "@type": "City",
       name: settings.city,

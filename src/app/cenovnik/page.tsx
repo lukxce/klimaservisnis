@@ -85,7 +85,7 @@ export default async function CenovnikPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: service.title,
-    provider: { "@type": "HVACBusiness", name: settings.title },
+    provider: { "@type": "HVACBusiness", name: settings.title, address: settings.address ? { "@type": "PostalAddress", streetAddress: settings.address, addressLocality: settings.city, addressCountry: "RS" } : undefined, },
     areaServed: settings.city,
     offers: {
       "@type": "Offer",
