@@ -24,7 +24,9 @@ export async function generateMetadata(
 
   const settings = await getSiteSettings();
   const title = `${hub.name} klime u ${settings.city}u | cena i ugradnja`;
-  const description = `${hub.subtitle} Prodaja i profesionalna ugradnja u ${settings.city}u i okolini.`;
+  const descriptionSuffix = ` Prodaja i profesionalna ugradnja u ${settings.city}u i okolini.`;
+  const description =
+    `${hub.subtitle}${descriptionSuffix}`.length <= 160 ? `${hub.subtitle}${descriptionSuffix}` : hub.subtitle;
 
   return {
     title,
