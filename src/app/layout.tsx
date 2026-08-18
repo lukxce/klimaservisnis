@@ -37,10 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: {
-      default: title,
-      template: `%s | ${settings.title}`,
-    },
+    title,
     description: `${settings.title} nudi servis, montažu i prodaju klima uređaja u ${settings.city}u i okolini. Pozovite ${settings.phone} za besplatnu procenu.`,
     alternates: { canonical: "/" },
     openGraph: {

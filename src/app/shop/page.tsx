@@ -10,10 +10,10 @@ import { SITE_URL } from "@/lib/site-config";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const title =
-    settings.seoShop?.title ?? `Prodaja klima uređaja u ${settings.city}u | katalog sa ugradnjom`;
+    settings.seoShop?.title ?? `Prodaja klima uređaja u ${settings.city}u | cene sa ugradnjom`;
   const description =
     settings.seoShop?.description ??
-    `Klima uređaji svih vodećih brendova (${settings.brands.slice(0, 4).join(", ")}...) sa profesionalnom montažom uključenom u cenu.`;
+    `Klima uređaji ${settings.brands.slice(0, 3).join(", ")} i drugih vodećih brendova u ${settings.city}u, sa profesionalnom montažom uračunatom u cenu.`;
 
   return {
     title,

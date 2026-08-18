@@ -9,10 +9,10 @@ import { SITE_URL } from "@/lib/site-config";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
-  const title = settings.seoBlog?.title ?? `Blog o klima uređajima | ${settings.city}`;
+  const title = settings.seoBlog?.title ?? `Blog o klima uređajima: saveti za servis i izbor`;
   const description =
     settings.seoBlog?.description ??
-    `Korisni tekstovi o servisu, ugradnji i izboru klima uređaja u ${settings.city}u.`;
+    `Tekstovi o održavanju i izboru klima uređaja: kada je vreme za čišćenje, kako prepoznati gubitak gasa i koja snaga odgovara prostoru.`;
 
   return {
     title,

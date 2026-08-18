@@ -8,8 +8,8 @@ import { SITE_URL } from "@/lib/site-config";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
-  const title = "Kontakt";
-  const description = `Pozovite ${settings.phone} ili nas posetite u ${settings.address ?? settings.city}. Radno vreme: ${settings.workingHours ?? ""}.`;
+  const title = `Kontakt i zakazivanje servisa klime u ${settings.city}u`;
+  const description = `Zakažite servis, montažu ili dolazak na teren u ${settings.city}u. Odgovaramo isti dan i izlazimo u terminu koji vama odgovara. Pozovite ${settings.phone}.`;
 
   return {
     title,

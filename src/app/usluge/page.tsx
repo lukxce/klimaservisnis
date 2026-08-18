@@ -9,10 +9,10 @@ import { SITE_URL } from "@/lib/site-config";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const title =
-    settings.seoUsluge?.title ?? `Usluge servisa i montaže klima uređaja u ${settings.city}u`;
+    settings.seoUsluge?.title ?? `Usluge za klima uređaje u ${settings.city}u | servis i montaža`;
   const description =
     settings.seoUsluge?.description ??
-    `Sve o servisu, montaži, popravci i dijagnostici klima uređaja koje nudi ${settings.title} u ${settings.city}u.`;
+    `Servis, montaža, popravka i dijagnostika klima uređaja u ${settings.city}u. Svaka usluga sa opisom postupka i cenom unapred. Pozovite ${settings.phone}.`;
 
   return {
     title,
