@@ -31,19 +31,24 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const faq = [
   {
-    question: "Da li je rezultat kalkulatora tačan kao procena servisera?",
+    question: "Koliko je ova procena tačna u odnosu na dolazak servisera?",
     answer:
-      "Kalkulator daje dobru okvirnu procenu na osnovu kvadrature, orijentacije, sprata, izolacije i broja osoba, ali za graničan slučaj, na primer prostoriju sa dosta staklenih površina ili neobičnim oblikom, preporučujemo i kratak razgovor sa serviserom pre kupovine.",
+      "Kalkulator vam daje dobru polaznu tačku pre kupovine, ali serviser na licu mesta uvek može da uoči detalje koje online alat ne vidi, na primer spojene prostorije bez vrata ili neuobičajen raspored prozora. Za standardnu sobu ili dvosoban stan procena kalkulatora i procena na terenu se po pravilu poklapaju.",
   },
   {
-    question: "Zašto je važna orijentacija prostorije?",
+    question: "Da li plafon viši od standardnog stvarno menja preporučenu snagu?",
     answer:
-      "Prostorija okrenuta ka jugu ili zapadu prima znatno više direktnog sunca tokom dana, pa se zagreva brže i klima mora da radi jače da održi istu temperaturu u odnosu na severnu ili istočnu sobu iste veličine.",
+      "Da, i to primetno - prostorija sa plafonom preko 3 metra ima veću zapreminu vazduha za hlađenje iako je kvadratura ista, pa kalkulator za takve tavanice dodaje deo na osnovnu procenu.",
   },
   {
-    question: "Šta ako mi kalkulator predloži 24000 BTU sa napomenom o multi-splitu?",
+    question: "Imam veliki balkon sa staklenim vratima, da li to nešto menja?",
     answer:
-      "To znači da je prostorija na granici gde jedna standardna klima teško održava temperaturu. Multi-split sistem ili podela na dve manje zone su obično bolje i isplativije rešenje od jedne prevelike jedinice.",
+      "Staklene površine puštaju više toplote unutra nego zid iste veličine, pa ih približno hvatamo kroz unos o tipu stakla (jednostruko, duplo ili trostruko zastakljeno). Za sobu sa neobično velikim staklenim frontom računajte da će stvarna potrošnja biti na gornjoj granici procene.",
+  },
+  {
+    question: "Zašto kalkulator predlaže veću snagu za stan na poslednjem spratu?",
+    answer:
+      "Stanovi ispod krova, pogotovo u starijim zgradama bez termoizolacije potkrovlja, leti se zagrevaju znatno brže od stanova na srednjim spratovima, pa kalkulator za njih dodaje koeficijent na osnovnu procenu snage.",
   },
 ];
 
@@ -77,7 +82,7 @@ export default async function KalkulatorKlimePage() {
       <PageHero
         eyebrow="Besplatan alat"
         title={`Koja klima mi treba za ${settings.city}?`}
-        subtitle="Odgovorite na nekoliko pitanja o prostoriji i dobićete preporučenu snagu u BTU, plus modele iz naše ponude koji joj odgovaraju."
+        subtitle="Unesite osnovne podatke o prostoriji i za manje od minuta dobijate preporučenu BTU snagu i modele iz naše ponude koji joj odgovaraju."
         breadcrumb={
           <nav className="mb-3 text-sm text-muted">
             <Link href="/" className="hover:text-accent">Početna</Link>
@@ -98,21 +103,21 @@ export default async function KalkulatorKlimePage() {
           <span className="font-mono text-sm font-semibold uppercase tracking-wide text-accent">
             Kako računamo
           </span>
-          <h2 className="mt-2 text-2xl font-bold text-navy">Šta ulazi u procenu</h2>
+          <h2 className="mt-2 text-2xl font-bold text-navy">Kako dolazimo do preporuke</h2>
           <p className="mt-4 text-muted">
-            Polazimo od kvadrature prostorije i standardne procene snage po metru
-            kvadratnom, pa je korigujemo prema stvarnim uslovima: viši plafon i
-            južna ili zapadna orijentacija znače da klima mora jače da radi, dok
-            dobra izolacija i novije, duplo zastakljeno staklo smanjuju potrebnu
-            snagu. Sprat pod krovom i broj osoba u prostoriji takođe utiču na
-            konačnu procenu.
+            Računica kreće od kvadrature sobe i osnovne procene potrebne snage po
+            kvadratu, a zatim je prilagođavamo stvarnim uslovima prostorije:
+            visini plafona, strani sveta na koju gledaju prozori, spratu, stanju
+            stolarije i izolacije, i broju osoba koje u prostoriji obično borave.
           </p>
           <p className="mt-4 text-muted">
-            Rezultat se zaokružuje na stvarnu prodajnu snagu (9000, 12000, 18000
-            ili 24000 BTU), jer se klime ne prave u proizvoljnim kapacitetima.
-            Ako izračunata snaga pređe ono što jedna standardna klima realno
-            može da pokrije, predlažemo multi-split sistem umesto predimenzionisane
-            jedinice.
+            U Nišu se ta razlika često vidi između starijih zgrada u centru, sa
+            debljim zidovima i manjim prozorima, i novijih naselja sa velikim
+            staklenim površinama - kalkulator to hvata kroz unos o izolaciji i
+            tipu stakla, ne kroz samu lokaciju. Rezultat se, kao i uvek,
+            zaokružuje na realnu prodajnu snagu (9000, 12000, 18000 ili 24000
+            BTU); kad procena pređe taj okvir, bolje rešenje je obično
+            multi-split sistem nego jedna prevelika klima.
           </p>
         </Container>
       </section>
