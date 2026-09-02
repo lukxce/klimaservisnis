@@ -281,6 +281,27 @@ export default async function ProductDetailPage(
             <RichText value={product.description} />
           ) : null}
         </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Link
+            href="/usluge/montaza"
+            className="group rounded-2xl border border-black/5 bg-surface p-6 transition hover:border-accent/30 hover:bg-white hover:shadow-sm"
+          >
+            <span className="text-sm text-muted">Trebate montažu ove klime?</span>
+            <span className="mt-1 block font-semibold text-navy group-hover:text-accent">
+              Pogledajte našu uslugu montaže →
+            </span>
+          </Link>
+          <Link
+            href="/usluge/servis"
+            className="group rounded-2xl border border-black/5 bg-surface p-6 transition hover:border-accent/30 hover:bg-white hover:shadow-sm"
+          >
+            <span className="text-sm text-muted">Već imate ovaj ili sličan model?</span>
+            <span className="mt-1 block font-semibold text-navy group-hover:text-accent">
+              Zakažite godišnji servis →
+            </span>
+          </Link>
+        </div>
       </Container>
     </>
   );

@@ -13,9 +13,9 @@ const serviceLinks = [
 ];
 
 const navLinks = [
-  { href: "/shop", label: "Prodaja klima" },
   { href: "/kalkulator-klime", label: "Kalkulator klime" },
   { href: "/cenovnik", label: "Cenovnik usluga" },
+  { href: "/shop", label: "Prodaja klima" },
   { href: "/blog", label: "Blog" },
   { href: "/kontakt", label: "Kontakt" },
 ];

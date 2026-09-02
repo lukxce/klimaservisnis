@@ -139,6 +139,24 @@ export default async function UslugaDetailPage(
         </section>
       )}
 
+      {page.slug === "montaza" && (
+        <section className="pb-12">
+          <Container>
+            <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-accent/20 bg-accent/5 p-6 text-center sm:flex-row sm:text-left">
+              <p className="text-sm font-medium text-navy">
+                Nudimo montažu svih brendova klima uređaja koje prodajemo.
+              </p>
+              <Link
+                href="/shop"
+                className="shrink-0 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent"
+              >
+                Pogledajte katalog klima →
+              </Link>
+            </div>
+          </Container>
+        </section>
+      )}
+
       {/* Pricing — podignuto gore, ljudi ne treba da skroluju kroz ceo tekst da bi videli cenu */}
       {relatedServices.length > 0 && (
         <section className="pb-12">

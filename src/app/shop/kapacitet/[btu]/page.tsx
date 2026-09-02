@@ -118,6 +118,17 @@ export default async function CapacityHubPage(
               {paragraph}
             </p>
           ))}
+          <p className="mt-4 text-muted">
+            Svaki model iz ovog kapaciteta prodajemo sa profesionalnom{" "}
+            <Link href="/usluge/montaza" className="font-semibold text-accent hover:underline">
+              ugradnjom
+            </Link>{" "}
+            uključenom u cenu, a kasnije nudimo i redovan{" "}
+            <Link href="/usluge/servis" className="font-semibold text-accent hover:underline">
+              servis
+            </Link>
+            .
+          </p>
         </Container>
       </section>
 

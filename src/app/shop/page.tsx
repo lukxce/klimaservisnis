@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Container } from "@/components/Container";
 import { PageHero } from "@/components/PageHero";
@@ -50,6 +51,20 @@ export default async function ShopPage() {
           { value: "Montaža uključena", label: "u cenu svakog uređaja" },
         ]}
       />
+
+      <section className="border-b border-black/5 bg-accent/5 py-6">
+        <Container className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+          <p className="text-sm font-medium text-navy">
+            Sve klime prodajemo sa mogućnošću profesionalne montaže.
+          </p>
+          <Link
+            href="/usluge/montaza"
+            className="shrink-0 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent"
+          >
+            Pogledajte uslugu montaže →
+          </Link>
+        </Container>
+      </section>
 
       <section className="py-14">
         <Container>

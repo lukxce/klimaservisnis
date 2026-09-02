@@ -104,6 +104,17 @@ export default async function BrandHubPage(
               {paragraph}
             </p>
           ))}
+          <p className="mt-4 text-muted">
+            Svaki {hub.name} model prodajemo sa profesionalnom{" "}
+            <Link href="/usluge/montaza" className="font-semibold text-accent hover:underline">
+              ugradnjom
+            </Link>{" "}
+            uključenom u cenu, a kasnije nudimo i redovan{" "}
+            <Link href="/usluge/servis" className="font-semibold text-accent hover:underline">
+              servis
+            </Link>
+            .
+          </p>
         </Container>
       </section>
 
