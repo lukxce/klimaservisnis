@@ -42,8 +42,7 @@ export default async function PolitikaPrivatnostiPage() {
           <h2 className="text-xl font-bold text-navy">Vlasništvo sajta i izvođenje usluga</h2>
           <p className="mt-3 text-muted">
             Sajt {settings.title} u vlasništvu je i pod upravom kompanije DIGITL. Kompanija DIGITL
-            upravlja sajtom, oglašavanjem i zakazivanjem, ali usluge prikazane na sajtu (isušivanje
-            vlage, iznajmljivanje i najam mašina, sanacija posle poplave i ostale usluge) izvodi
+            upravlja sajtom, oglašavanjem i zakazivanjem, ali usluge prikazane na sajtu izvodi
             nezavisni izvođač, samostalni preduzetnik ili firma kojoj je ovaj sajt ustupljen radi
             oglašavanja i zakazivanja usluga u {settings.city}u i okolini.
           </p>
