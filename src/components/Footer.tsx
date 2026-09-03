@@ -44,6 +44,7 @@ export async function Footer() {
             <li><Link href="/shop" className="hover:text-accent">Prodaja klima uređaja</Link></li>
             <li><Link href="/blog" className="hover:text-accent">Blog</Link></li>
             <li><Link href="/kontakt" className="hover:text-accent">Kontakt</Link></li>
+            <li><Link href="/politika-privatnosti" className="hover:text-accent">Politika privatnosti</Link></li>
           </ul>
         </div>
 
@@ -88,7 +89,10 @@ export async function Footer() {
       <div className="border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/50 sm:flex-row">
           <span>© {year} {settings.title}. Sva prava zadržana.</span>
-          <span>{settings.brands.join(" · ")}</span>
+          <span className="flex items-center gap-4">
+            <Link href="/politika-privatnosti" className="hover:text-accent">Politika privatnosti</Link>
+            <span>{settings.brands.join(" · ")}</span>
+          </span>
         </Container>
       </div>
     </footer>
