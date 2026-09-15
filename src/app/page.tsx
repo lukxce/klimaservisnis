@@ -4,13 +4,11 @@ import Image from "next/image";
 
 import { Container } from "@/components/Container";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
-import { ProductCard } from "@/components/ProductCard";
 import { BlogCard } from "@/components/BlogCard";
 import { ClosingCta } from "@/components/ClosingCta";
 import {
   getSiteSettings,
   getServicePages,
-  getFeaturedProducts,
   getBlogPosts,
 } from "@/lib/data";
 import { formatServiceAreas } from "@/lib/format";
@@ -19,7 +17,7 @@ import { SITE_URL } from "@/lib/site-config";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
   const title = `${settings.title} | ${settings.phone}`;
-  const description = `Servis, montaža i prodaja klima uređaja u ${settings.city}u i okolini. Dolazak isti dan, cena dogovorena unapred i garancija na svaki rad. Pozovite ${settings.phone}.`;
+  const description = `Servis, montaža i popravka klima uređaja u ${settings.city}u i okolini. Dolazak isti dan, cena dogovorena unapred i garancija na svaki rad. Pozovite ${settings.phone}.`;
 
   return {
     title: { absolute: title },
@@ -30,10 +28,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [settings, servicePages, featuredProducts, posts] = await Promise.all([
+  const [settings, servicePages, posts] = await Promise.all([
     getSiteSettings(),
     getServicePages(),
-    getFeaturedProducts(),
     getBlogPosts(),
   ]);
 
@@ -61,7 +58,7 @@ export default async function HomePage() {
               Dostupni danas u {settings.city}u
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-[1.1] text-navy sm:text-6xl">
-              Servis, montaža i prodaja{" "}
+              Servis, montaža i popravka{" "}
               <span className="bg-gradient-to-r from-accent to-sky-500 bg-clip-text text-transparent">
                 klima uređaja
               </span>{" "}
@@ -72,10 +69,10 @@ export default async function HomePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/shop"
+                href="/kalkulator-klime"
                 className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition hover:bg-accent-dark"
               >
-                Pogledajte klime
+                Izračunajte BTU snagu
               </Link>
               <a
                 href="#usluge"
@@ -281,37 +278,6 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* Featured products */}
-      <section className="bg-white py-16">
-        <Container>
-          <div className="flex items-end justify-between">
-            <div>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-accent">
-                <span className="h-px w-6 bg-accent" />
-                Katalog klima
-              </span>
-              <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Izdvojeni klima uređaji</h2>
-            </div>
-            <Link href="/shop" className="hidden text-sm font-semibold text-accent hover:underline sm:block">
-              Kompletan katalog →
-            </Link>
-          </div>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
-          </div>
-          <div className="mt-6 sm:hidden">
-            <Link
-              href="/shop"
-              className="block rounded-full bg-navy px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-navy-light"
-            >
-              Pogledajte sve modele
-            </Link>
-          </div>
-        </Container>
-      </section>
-
       {/* About */}
       <section className="relative overflow-hidden bg-navy py-16 text-white">
         <div className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />
@@ -341,12 +307,12 @@ export default async function HomePage() {
               Servis klima uređaja sa iskustvom na terenu
             </h2>
             <p className="mt-4 text-white/70">
-              {settings.title} pruža usluge servisa, montaže, popravke i prodaje
+              {settings.title} pruža usluge servisa, montaže i popravke
               klima uređaja {settings.foundedYear ? `od ${settings.foundedYear}. godine` : ""}.
               Pokrivamo: {formatServiceAreas(settings.city, settings.serviceAreas)}.
             </p>
             <p className="mt-3 text-white/70">
-              Radimo sa proverenim brendovima: {settings.brands.join(", ")}.
+              Servisiramo sve vodeće brendove: {settings.brands.join(", ")}.
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-4 border-y border-white/10 py-6">
               {settings.foundedYear && (
@@ -361,7 +327,7 @@ export default async function HomePage() {
                 <dd className="text-3xl font-bold text-accent sm:text-4xl">
                   {settings.brands.length}
                 </dd>
-                <dt className="mt-1 text-xs text-white/50">brendova u ponudi</dt>
+                <dt className="mt-1 text-xs text-white/50">brendova koje servisiramo</dt>
               </div>
               <div>
                 <dd className="text-3xl font-bold text-accent sm:text-4xl">
@@ -402,12 +368,12 @@ export default async function HomePage() {
               ),
             },
             {
-              href: "/shop",
-              eyebrow: "Shop",
-              title: "Kupite novu klimu",
-              text: "Pregledajte katalog uređaja sa montažom uključenom u cenu.",
+              href: "/kalkulator-klime",
+              eyebrow: "Kalkulator",
+              title: "Izračunajte BTU snagu",
+              text: "Odgovorite na par pitanja i saznajte koja snaga vam treba.",
               icon: (
-                <path d="M3 7h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Zm3 3h8m-8 8c1.5 2 1.5 3 0 4m6-4c1.5 2 1.5 3 0 4m6-4c1.5 2 1.5 3 0 4" />
+                <path d="M4 4h16v16H4V4Zm3 4h10M7 12h3m4 0h3M7 16h3m4 0h3" />
               ),
             },
             {

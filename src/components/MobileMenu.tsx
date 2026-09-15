@@ -15,9 +15,6 @@ export function MobileMenu({
   const [open, setOpen] = useState(false);
   const [uslugeOpen, setUslugeOpen] = useState(false);
 
-  const shopLink = navLinks.find((link) => link.href === "/shop");
-  const restLinks = navLinks.filter((link) => link.href !== "/shop");
-
   function closeAll() {
     setOpen(false);
     setUslugeOpen(false);
@@ -82,13 +79,7 @@ export function MobileMenu({
               )}
             </div>
 
-            {shopLink && (
-              <Link href={shopLink.href} onClick={closeAll} className="py-3 font-medium text-navy">
-                {shopLink.label}
-              </Link>
-            )}
-
-            {restLinks.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

@@ -29,7 +29,6 @@ export type SiteSettings = {
   socials?: { facebook?: string; instagram?: string };
   seoUsluge?: SeoOverride;
   seoCenovnik?: SeoOverride;
-  seoShop?: SeoOverride;
   seoBlog?: SeoOverride;
 };
 
@@ -67,30 +66,6 @@ export type ServicePage = {
   ctaBandBullets: string[];
   whyUs: ChecklistItem[];
   faq: FaqItem[];
-  seo?: SeoOverride;
-};
-
-export type Product = {
-  slug: string;
-  title: string;
-  brand: string;
-  type: string;
-  btu: number;
-  price: number;
-  oldPrice?: number;
-  installationIncluded: boolean;
-  shortDescription: string;
-  featured?: boolean;
-  imageUrl?: string;
-  description?: unknown;
-  features?: string[];
-  specs?: {
-    energyClassCooling?: string;
-    energyClassHeating?: string;
-    gasType?: string;
-    wifi?: boolean;
-    warranty?: string;
-  };
   seo?: SeoOverride;
 };
 

@@ -41,7 +41,7 @@ export async function Footer() {
           </h4>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/cenovnik" className="hover:text-accent">Cenovnik usluga</Link></li>
-            <li><Link href="/shop" className="hover:text-accent">Prodaja klima uređaja</Link></li>
+            <li><Link href="/kalkulator-klime" className="hover:text-accent">Kalkulator klime</Link></li>
             <li><Link href="/blog" className="hover:text-accent">Blog</Link></li>
             <li><Link href="/kontakt" className="hover:text-accent">Kontakt</Link></li>
             <li><Link href="/politika-privatnosti" className="hover:text-accent">Politika privatnosti</Link></li>

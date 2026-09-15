@@ -50,7 +50,7 @@ function pLink(before: string, linkText: string, after: string, href: string, ke
 
 export const siteSettings = {
   title: "Servis Klime Niš",
-  tagline: "Servis, montaža i prodaja klima uređaja u Nišu",
+  tagline: "Servis, montaža i popravka klima uređaja u Nišu",
   phone: "062 1337 373",
   email: "kontakt@servisklimenis.rs",
   city: "Niš",
@@ -235,176 +235,6 @@ export const services: ServiceItem[] = [
     shortDescription: "Izlazak servisera i utvrđivanje uzroka kvara, uračunato u cenu popravke ako se izvrši.",
     priceFrom: 1500,
     featured: true,
-  },
-];
-
-export type ProductItem = {
-  slug: string;
-  title: string;
-  brand: string;
-  type: string;
-  btu: number;
-  price: number;
-  oldPrice?: number;
-  installationIncluded: boolean;
-  shortDescription: string;
-  featured?: boolean;
-  specs: {
-    energyClassCooling: string;
-    energyClassHeating: string;
-    gasType: string;
-    wifi: boolean;
-    warranty: string;
-  };
-  features: string[];
-};
-
-export const products: ProductItem[] = [
-  {
-    slug: "gree-pular-eco-12k",
-    title: "Gree Pular Eco 12k",
-    brand: "Gree",
-    type: "Zidni",
-    btu: 12000,
-    price: 480,
-    installationIncluded: true,
-    shortDescription: "Inverter klima uređaj sa Wi-Fi upravljanjem, R32 gas, tih rad.",
-    featured: true,
-    specs: {
-      energyClassCooling: "A++",
-      energyClassHeating: "A+",
-      gasType: "R32",
-      wifi: true,
-      warranty: "2 + 5 godina",
-    },
-    features: [
-      "Inverter tehnologija za stabilnu temperaturu i nižu potrošnju struje",
-      "Wi-Fi upravljanje putem mobilne aplikacije",
-      "Tih rad unutrašnje jedinice",
-      "Auto-restart funkcija posle nestanka struje",
-      "Filter za prečišćavanje vazduha",
-    ],
-  },
-  {
-    slug: "midea-xtreme-save-12k",
-    title: "Midea Xtreme Save 12k",
-    brand: "Midea",
-    type: "Zidni",
-    btu: 12000,
-    price: 450,
-    oldPrice: 520,
-    installationIncluded: true,
-    shortDescription: "Visoko energetski efikasan model, idealan za dnevne boravke do 35m².",
-    featured: true,
-    specs: {
-      energyClassCooling: "A+++",
-      energyClassHeating: "A++",
-      gasType: "R32",
-      wifi: true,
-      warranty: "2 + 5 godina",
-    },
-    features: [
-      "Izuzetno visoka energetska efikasnost (A+++)",
-      "I-ECO tehnologija za dodatnu uštedu energije",
-      "Wi-Fi upravljanje",
-      "Rad na niskim spoljnim temperaturama do -15°C",
-      "Self-clean funkcija isparivača",
-    ],
-  },
-  {
-    slug: "daikin-sensira-18k",
-    title: "Daikin Sensira 18k",
-    brand: "Daikin",
-    type: "Zidni",
-    btu: 18000,
-    price: 780,
-    installationIncluded: true,
-    shortDescription: "Pouzdan japanski brend, pogodan za veće prostorije i poslovni prostor.",
-    featured: true,
-    specs: {
-      energyClassCooling: "A++",
-      energyClassHeating: "A+",
-      gasType: "R32",
-      wifi: false,
-      warranty: "2 + 5 godina",
-    },
-    features: [
-      "Pouzdana japanska tehnologija",
-      "Econo režim za smanjenu potrošnju energije",
-      "Tih rad i stabilno hlađenje i grejanje",
-      "Automatski restart nakon nestanka struje",
-      "Pogodan za veće prostorije i poslovni prostor",
-    ],
-  },
-  {
-    slug: "hisense-comfort-9k",
-    title: "Hisense Comfort 9k",
-    brand: "Hisense",
-    type: "Zidni",
-    btu: 9000,
-    price: 380,
-    installationIncluded: true,
-    shortDescription: "Kompaktan i tih uređaj za manje sobe i kancelarije.",
-    specs: {
-      energyClassCooling: "A++",
-      energyClassHeating: "A+",
-      gasType: "R32",
-      wifi: false,
-      warranty: "2 + 5 godina",
-    },
-    features: [
-      "Kompaktan dizajn pogodan za manje prostorije",
-      "Tih rad, idealan za spavaće sobe i kancelarije",
-      "I-Feel funkcija za precizno merenje temperature u prostoriji",
-      "Brzo hlađenje i grejanje pri pokretanju",
-    ],
-  },
-  {
-    slug: "lg-dualcool-24k",
-    title: "LG DualCool 24k",
-    brand: "LG",
-    type: "Zidni",
-    btu: 24000,
-    price: 990,
-    installationIncluded: true,
-    featured: true,
-    shortDescription: "Snažan inverter model za velike prostorije, Wi-Fi i brzo hlađenje.",
-    specs: {
-      energyClassCooling: "A++",
-      energyClassHeating: "A+",
-      gasType: "R32",
-      wifi: true,
-      warranty: "2 + 5 godina",
-    },
-    features: [
-      "Snažan kapacitet za velike prostorije i otvorene planove",
-      "Wi-Fi upravljanje putem LG ThinQ aplikacije",
-      "DUAL Inverter kompresor za brzo hlađenje i tih rad",
-      "Auto Clean funkcija sprečava stvaranje buđi i neprijatnih mirisa",
-    ],
-  },
-  {
-    slug: "vivax-cool-12k",
-    title: "Vivax Cool 12k",
-    brand: "Vivax",
-    type: "Zidni",
-    btu: 12000,
-    price: 420,
-    installationIncluded: true,
-    shortDescription: "Odličan odnos cene i kvaliteta za stambeni prostor.",
-    specs: {
-      energyClassCooling: "A++",
-      energyClassHeating: "A+",
-      gasType: "R32",
-      wifi: false,
-      warranty: "2 + 3 godine",
-    },
-    features: [
-      "Odličan odnos cene i kvaliteta",
-      "Inverter tehnologija",
-      "Četiri režima rada: hlađenje, grejanje, sušenje i ventilacija",
-      "Jednostavno upravljanje daljinskim upravljačem",
-    ],
   },
 ];
 
@@ -1024,12 +854,14 @@ export const blogPosts: BlogPostItem[] = [
       h2("Niška specifičnost"),
       p("Niš spada u toplije delove Srbije, sa letnjim danima koji redovno prelaze 35 stepeni i sa kotlinom koja toplotu zadržava i posle zalaska sunca. To u praksi znači da uređaj u Nišu ređe radi u lakim uslovima nego isti uređaj na severu zemlje, i da je granica između dva kapaciteta osetljivija. Ako vaš izračun padne tik ispod praga za jači uređaj, a prostorija je na jugu ili zapadu, jači uređaj je po pravilu bezbedniji izbor."),
       h2("Gde dalje"),
-      p("Kada znate kapacitet, ostaje izbor modela. Uređaje smo grupisali po kapacitetu da biste videli sve opcije u svojoj kategoriji na jednom mestu:"),
-      bulletLink("9000 BTU za sobe do oko 20 kvadrata", "/shop/kapacitet/9000-btu", "cap9000"),
-      bulletLink("12000 BTU za prostorije od 20 do 28 kvadrata", "/shop/kapacitet/12000-btu", "cap12000"),
-      bulletLink("18000 BTU za veće dnevne boravke od 28 do 35 kvadrata", "/shop/kapacitet/18000-btu", "cap18000"),
-      bulletLink("24000 BTU za velike i otvorene prostore", "/shop/kapacitet/24000-btu", "cap24000"),
-      p("U svakoj kategoriji postoje modeli različitih klasa i cena, ali kapacitet je odluka koja se donosi prva, jer se pogrešan kapacitet ne može popraviti ni najboljim modelom."),
+      pLink(
+        "Kada znate kapacitet, ostaje izbor konkretnog modela i procena za vaš prostor. Najbrži način da proverite preporučenu snagu je naš ",
+        "kalkulator klime",
+        ", a za tačan model i cenu sa montažom uključenom pozovite nas direktno.",
+        "/kalkulator-klime",
+        "calclink",
+      ),
+      p("Kapacitet je odluka koja se donosi prva, jer se pogrešan kapacitet ne može popraviti ni najboljim modelom."),
     ],
     faq: [
       {

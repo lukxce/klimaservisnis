@@ -139,7 +139,6 @@ export const siteSettings = defineType({
     }),
     makeSeoOverrideField('seoUsluge', 'stranica /usluge'),
     makeSeoOverrideField('seoCenovnik', 'stranica /cenovnik'),
-    makeSeoOverrideField('seoShop', 'stranica /shop'),
     makeSeoOverrideField('seoBlog', 'stranica /blog'),
   ],
 })

@@ -1,7 +1,6 @@
 import {
   getSiteSettings,
   getServicePages,
-  getProducts,
   getBlogPosts,
 } from "@/lib/data";
 import { SITE_URL } from "@/lib/site-config";
@@ -13,10 +12,9 @@ import { SITE_URL } from "@/lib/site-config";
 export const revalidate = false;
 
 export async function GET() {
-  const [settings, servicePages, products, posts] = await Promise.all([
+  const [settings, servicePages, posts] = await Promise.all([
     getSiteSettings(),
     getServicePages(),
-    getProducts(),
     getBlogPosts(),
   ]);
 
@@ -25,7 +23,7 @@ export async function GET() {
   lines.push(`# ${settings.title}`);
   lines.push("");
   lines.push(
-    `> ${settings.tagline ?? `Servis, montaža i prodaja klima uređaja u ${settings.city}u`}. Radimo u: ${settings.serviceAreas.join(", ")}. Telefon: ${settings.phone}.`,
+    `> ${settings.tagline ?? `Servis, montaža i popravka klima uređaja u ${settings.city}u`}. Radimo u: ${settings.serviceAreas.join(", ")}. Telefon: ${settings.phone}.`,
   );
   lines.push("");
   lines.push(
@@ -44,14 +42,6 @@ export async function GET() {
     `## Cenovnik\n- [Kompletan cenovnik usluga](${SITE_URL}/cenovnik)`,
   );
   lines.push("");
-
-  if (products.length > 0) {
-    lines.push("## Prodaja klima uređaja");
-    lines.push(
-      `- [Svi modeli u ponudi](${SITE_URL}/shop): ${products.length} klima uređaja, brendovi: ${[...new Set(products.map((p) => p.brand))].join(", ")}`,
-    );
-    lines.push("");
-  }
 
   if (posts.length > 0) {
     lines.push("## Blog");

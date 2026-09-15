@@ -6,9 +6,6 @@ import {
   serviceBySlugQuery,
   servicePagesQuery,
   servicePageBySlugQuery,
-  productsQuery,
-  featuredProductsQuery,
-  productBySlugQuery,
   blogPostsQuery,
   blogPostBySlugQuery,
 } from "@/sanity/lib/queries";
@@ -16,10 +13,9 @@ import {
   siteSettings as placeholderSettings,
   services as placeholderServices,
   servicePages as placeholderServicePages,
-  products as placeholderProducts,
   blogPosts as placeholderBlogPosts,
 } from "@/lib/placeholder-data";
-import type { SiteSettings, Service, ServicePage, Product, BlogPost } from "@/lib/types";
+import type { SiteSettings, Service, ServicePage, BlogPost } from "@/lib/types";
 
 const cmsConfigured = Boolean(projectId);
 
@@ -59,7 +55,6 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     socials: data.socials,
     seoUsluge: data.seoUsluge,
     seoCenovnik: data.seoCenovnik,
-    seoShop: data.seoShop,
     seoBlog: data.seoBlog,
   };
 }
@@ -125,53 +120,6 @@ export async function getServicePageBySlug(slug: string): Promise<ServicePage | 
   }
   const data = await client.fetch(servicePageBySlugQuery, { slug }, { next: { tags: ["servicePage"] } });
   return data ? mapServicePage(data) : null;
-}
-
-function mapProduct(raw: any): Product {
-  return {
-    slug: typeof raw.slug === "string" ? raw.slug : raw.slug?.current,
-    title: raw.title,
-    brand: raw.brand,
-    type: raw.type ?? "Zidni",
-    btu: raw.btu,
-    price: raw.price,
-    oldPrice: raw.oldPrice,
-    installationIncluded: raw.installationIncluded ?? true,
-    shortDescription: raw.shortDescription ?? "",
-    featured: raw.featured,
-    imageUrl: Array.isArray(raw.images)
-      ? imgUrl(raw.images[0])
-      : imgUrl(raw.image),
-    description: raw.description,
-    features: raw.features,
-    specs: raw.specs,
-    seo: raw.seo,
-  };
-}
-
-export async function getProducts(): Promise<Product[]> {
-  if (!cmsConfigured) return placeholderProducts.map(mapProduct);
-  const data = await client.fetch(productsQuery, {}, { next: { tags: ["product"] } });
-  if (!data?.length) return placeholderProducts.map(mapProduct);
-  return data.map(mapProduct);
-}
-
-export async function getFeaturedProducts(): Promise<Product[]> {
-  if (!cmsConfigured)
-    return placeholderProducts.filter((p) => p.featured).map(mapProduct);
-  const data = await client.fetch(featuredProductsQuery, {}, { next: { tags: ["product"] } });
-  if (!data?.length)
-    return placeholderProducts.filter((p) => p.featured).map(mapProduct);
-  return data.map(mapProduct);
-}
-
-export async function getProductBySlug(slug: string): Promise<Product | null> {
-  if (!cmsConfigured) {
-    const found = placeholderProducts.find((p) => p.slug === slug);
-    return found ? mapProduct(found) : null;
-  }
-  const data = await client.fetch(productBySlugQuery, { slug }, { next: { tags: ["product"] } });
-  return data ? mapProduct(data) : null;
 }
 
 function mapBlogPost(raw: any): BlogPost {

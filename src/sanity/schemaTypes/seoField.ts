@@ -30,7 +30,7 @@ export const seoField = defineField({
   fields: seoSubFields,
 })
 
-// Za stranice bez sopstvenog dokumenta (npr. /usluge, /cenovnik, /shop, /blog
+// Za stranice bez sopstvenog dokumenta (npr. /usluge, /cenovnik, /blog
 // pregledne stranice) — koristi se u okviru Podešavanja sajta, sa imenom polja
 // po izboru (npr. "seoUsluge").
 export function makeSeoOverrideField(name: string, title: string) {

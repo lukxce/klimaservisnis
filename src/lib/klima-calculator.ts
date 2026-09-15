@@ -1,8 +1,7 @@
-// Logika BTU kalkulatora - odvojena od UI-ja i od upita ka Sanity-ju.
-// Forma (KlimaCalculator.tsx) računa preporučeni kapacitet iz ovih funkcija,
-// pa taj broj šalje na /api/kalkulator-klime da nađe stvarne proizvode.
+// Logika BTU kalkulatora - odvojena od UI-ja. Forma (KlimaCalculator.tsx)
+// računa preporučeni kapacitet direktno iz ovih funkcija, na klijentu.
 
-import { btuBucket } from "@/lib/shop-taxonomy";
+import { btuBucket } from "@/lib/klima-power";
 
 export type CeilingHeight = "low" | "standard" | "high";
 export type Orientation = "north" | "south" | "east" | "west";

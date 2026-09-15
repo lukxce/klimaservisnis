@@ -1,15 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
-import { ProductCard } from "@/components/ProductCard";
 import {
   calculateResult,
   type CalculatorInput,
   type CalculatorResult,
 } from "@/lib/klima-calculator";
-import type { Product } from "@/lib/types";
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -64,42 +61,19 @@ export function KlimaCalculator({ phone }: { phone: string }) {
   const [step, setStep] = useState<Step>(1);
   const [input, setInput] = useState<CalculatorInput>(initialInput);
   const [result, setResult] = useState<CalculatorResult | null>(null);
-  const [products, setProducts] = useState<Product[] | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [fetchError, setFetchError] = useState(false);
 
   function update<K extends keyof CalculatorInput>(key: K, value: CalculatorInput[K]) {
     setInput((prev) => ({ ...prev, [key]: value }));
   }
 
-  async function handleFinish() {
-    const calculated = calculateResult(input);
-    setResult(calculated);
-    setLoading(true);
-    setFetchError(false);
-    try {
-      const res = await fetch("/api/kalkulator-klime", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ btu: calculated.btu }),
-      });
-      if (!res.ok) throw new Error("bad response");
-      const data = await res.json();
-      setProducts(Array.isArray(data.products) ? data.products : []);
-    } catch {
-      setFetchError(true);
-      setProducts([]);
-    } finally {
-      setLoading(false);
-    }
+  function handleFinish() {
+    setResult(calculateResult(input));
   }
 
   function reset() {
     setStep(1);
     setInput(initialInput);
     setResult(null);
-    setProducts(null);
-    setFetchError(false);
   }
 
   if (result) {
@@ -119,34 +93,13 @@ export function KlimaCalculator({ phone }: { phone: string }) {
           </div>
         )}
 
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-navy">Modeli koji odgovaraju</h3>
-          {loading && <p className="mt-3 text-sm text-muted">Tražimo modele...</p>}
-          {!loading && products && products.length > 0 && (
-            <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {products.map((product) => (
-                <ProductCard key={product.slug} product={product} />
-              ))}
-            </div>
-          )}
-          {!loading && products && products.length === 0 && (
-            <div className="mt-4 rounded-xl border border-navy/10 bg-surface p-5 text-sm text-muted">
-              Trenutno nemamo tačan model te snage u ponudi na sajtu.{" "}
-              <a href={`tel:${phone.replace(/\s/g, "")}`} className="font-semibold text-accent-dark">
-                Pozovite {phone}
-              </a>{" "}
-              i predložićemo model koji odgovara.
-            </div>
-          )}
-          {fetchError && (
-            <p className="mt-3 text-sm text-muted">
-              Nismo uspeli da učitamo ponudu.{" "}
-              <a href={`tel:${phone.replace(/\s/g, "")}`} className="font-semibold text-accent-dark">
-                Pozovite {phone}
-              </a>{" "}
-              direktno.
-            </p>
-          )}
+        <div className="mt-8 rounded-xl border border-navy/10 bg-surface p-5 text-sm text-muted">
+          Ovo je orijentaciona preporuka. Za tačan predlog modela i cenu sa
+          montažom uključenom,{" "}
+          <a href={`tel:${phone.replace(/\s/g, "")}`} className="font-semibold text-accent-dark">
+            pozovite {phone}
+          </a>
+          .
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
@@ -157,12 +110,12 @@ export function KlimaCalculator({ phone }: { phone: string }) {
           >
             Izračunaj ponovo
           </button>
-          <Link
-            href="/shop"
+          <a
+            href={`tel:${phone.replace(/\s/g, "")}`}
             className="rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent"
           >
-            Pogledaj celu ponudu
-          </Link>
+            Pozovite {phone}
+          </a>
         </div>
       </div>
     );

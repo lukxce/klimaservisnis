@@ -10,12 +10,6 @@ export const servicePagesQuery = groq`*[_type == "servicePage"]`
 
 export const servicePageBySlugQuery = groq`*[_type == "servicePage" && slug.current == $slug][0]`
 
-export const productsQuery = groq`*[_type == "product"] | order(_createdAt desc)`
-
-export const featuredProductsQuery = groq`*[_type == "product" && featured == true] | order(_createdAt desc)`
-
-export const productBySlugQuery = groq`*[_type == "product" && slug.current == $slug][0]`
-
 export const blogPostsQuery = groq`*[_type == "blogPost"] | order(publishedAt desc)`
 
 export const blogPostBySlugQuery = groq`*[_type == "blogPost" && slug.current == $slug][0]`
